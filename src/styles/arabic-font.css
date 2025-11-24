@@ -1,0 +1,71 @@
+/* -----------------------------------------------------
+   ATHAR — Arabic Font Configuration
+   Loads Tajawal in multiple weights
+   Applies ONLY when <html> has .lang-ar
+------------------------------------------------------ */
+
+/* ---- Tajawal Arabic font faces ---- */
+@font-face {
+  font-family: "AtharArabic";
+  src: url("/fonts/Tajawal-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AtharArabic";
+  src: url("/fonts/Tajawal-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AtharArabic";
+  src: url("/fonts/Tajawal-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AtharArabic";
+  src: url("/fonts/Tajawal-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* -----------------------------------------------------
+   APPLY ARABIC FONT ONLY WHEN <html class="lang-ar">
+   - Do NOT override the entire site
+   - Do NOT flip directions
+   - Keep Tailwind font weights working
+------------------------------------------------------ */
+
+/* Apply the base Arabic font ONLY to <body> */
+html.lang-ar body {
+  font-family: "AtharArabic", sans-serif !important;
+  font-weight: 400;
+  letter-spacing: 0 !important;
+}
+
+/* Elements inherit the Arabic font normally */
+html.lang-ar body * {
+  font-family: inherit !important;
+  font-weight: inherit;
+}
+
+/* Allow numbers to remain natural width */
+html.lang-ar body {
+  font-variant-numeric: proportional-nums;
+}
+
+/* IMPORTANT: 
+   DO NOT set direction or text-align here.
+   Keeping these commented prevents layout shifting:
+   
+   html.lang-ar { direction: rtl; }
+   html.lang-ar .uppercase { text-transform: none; }
+*/
