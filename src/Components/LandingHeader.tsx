@@ -53,6 +53,15 @@ function LandingPageHeader() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Shared style for all uppercase header nav links
+  const headerNavStyle = {
+    direction: locale === "ar" ? "rtl" : "ltr",
+    textAlign: locale === "ar" ? "right" : "left",
+    unicodeBidi: "isolate",
+    display: "inline-block",
+    textShadow: "0 0 2px rgba(0,0,0,0)",
+  };
+
   return (
     <>
       {/* Mobile Hero Logo - Mobile Only */}
@@ -119,28 +128,21 @@ function LandingPageHeader() {
                 <Link
                   to={localePath('/projects')}
                   className="uppercase text-white font-thin tracking-wide text-s hover:opacity-80 transition-opacity duration-300"
-                  style={{
-    direction: locale === "ar" ? "rtl" : "ltr",
-    textAlign: locale === "ar" ? "right" : "left",
-    unicodeBidi: "isolate",
-    display: "inline-block",
-    textShadow: "0 0 1px rgba(0,0,0,0)",
-
-  }}
->
+                  style={headerNavStyle}
+                >
                   {headerProjects}
                 </Link>
                 <Link
                   to={localePath('/services')}
                   className="uppercase text-white font-thin tracking-wide text-s hover:opacity-80 transition-opacity duration-300"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                  style={headerNavStyle}
                 >
                   {headerServices}
                 </Link>
                 <Link
                   to={localePath('/studio')}
                   className="uppercase text-white font-thin tracking-wide text-s hover:opacity-80 transition-opacity duration-300"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                  style={headerNavStyle}
                 >
                   {headerStudio}
                 </Link>
@@ -165,21 +167,21 @@ function LandingPageHeader() {
                 <Link
                   to={localePath('/news')}
                   className="uppercase text-white font-thin tracking-wide text-s hover:opacity-80 transition-opacity duration-300"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                  style={headerNavStyle}
                 >
                   {headerNews}
                 </Link>
                 <Link
                   to={localePath('/contact')}
                   className="uppercase text-white font-thin tracking-wide text-s hover:opacity-80 transition-opacity duration-300"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                  style={headerNavStyle}
                 >
                   {headerContact}
                 </Link>
                 <Link
                   to={localePath('/careers')}
                   className="uppercase text-white font-thin tracking-wide text-s hover:opacity-80 transition-opacity duration-300"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                  style={headerNavStyle}
                 >
                   {headerCareers}
                 </Link>
@@ -190,7 +192,7 @@ function LandingPageHeader() {
                 <button
                   onClick={setEnglish}
                   className="uppercase text-white font-thin tracking-wide text-[11px] whitespace-nowrap ml-auto hover:underline"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                  style={headerNavStyle}
                 >
                   EN
                 </button>
@@ -198,7 +200,7 @@ function LandingPageHeader() {
                 <button
                   onClick={setArabic}
                   className="uppercase text-white font-thin tracking-wide text-[11px] whitespace-nowrap ml-auto hover:underline"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                  style={headerNavStyle}
                 >
                   العربية
                 </button>
@@ -237,7 +239,7 @@ function LandingPageHeader() {
               key={path}
               to={localePath(path)}
               className="uppercase text-white font-thin tracking-wide text-xl hover:opacity-80 transition-opacity duration-300"
-              style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+              style={headerNavStyle}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {label}
@@ -260,7 +262,7 @@ function LandingPageHeader() {
             <button
               onClick={() => { setIsMobileMenuOpen(false); setEnglish(); }}
               className="uppercase text-white font-thin tracking-wide text-[18px] whitespace-nowrap"
-              style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+              style={headerNavStyle}
             >
               EN
             </button>
@@ -268,7 +270,7 @@ function LandingPageHeader() {
             <button
               onClick={() => { setIsMobileMenuOpen(false); setArabic(); }}
               className="uppercase text-white font-thin tracking-wide text-[18px] whitespace-nowrap"
-              style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+              style={headerNavStyle}
             >
               العربية
             </button>
