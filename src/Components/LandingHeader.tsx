@@ -53,15 +53,17 @@ function LandingPageHeader() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Detect if user is on Mac
+  const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad|iPod/.test(navigator.platform);
+
   // Shared style for all uppercase header nav links
   const headerNavStyle = {
     direction: locale === "ar" ? "rtl" : "ltr",
     textAlign: locale === "ar" ? "right" : "left",
     unicodeBidi: "isolate",
     display: "inline-block",
-    WebkitFontSmoothing: "antialiased",
-    MozOsxFontSmoothing: "grayscale",
-    textShadow: "0 0 0.5px rgba(0,0,0,0)",
+    fontWeight: isMac ? 300 : 100, // 300 (thin) for Mac, 100 (hairline) for Windows
+    textShadow: isMac ? "none" : "0 0 0.5px rgba(0,0,0,0)", // text-shadow only for Windows
   };
 
   return (
