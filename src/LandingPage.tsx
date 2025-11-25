@@ -16,6 +16,15 @@ export default function LandingPage() {
   const locale = pathname.startsWith('/sa/') ? 'ar' : 'en';
   const [texts, setTexts] = useState<Record<string, string>>({});
 
+  // Detect if user is on Mac
+  const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad|iPod/.test(navigator.platform);
+
+  // Shared style for uppercase text (like grid items)
+  const uppercaseOptimizedStyle = {
+    fontWeight: isMac ? 100 : 100,
+    textShadow: isMac ? "none" : "0 0 0.5px rgba(0,0,0,0)",
+  };
+
   useEffect(() => {
     supabase
       .from('Landing')
@@ -131,6 +140,7 @@ export default function LandingPage() {
             className="text-s font-thin tracking-widest uppercase mb-2"
             style={{
               fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+              ...uppercaseOptimizedStyle,
             }}
           >
             {texts['scroll-down'] || 'Scroll Down'}
@@ -177,7 +187,7 @@ export default function LandingPage() {
                       style={{
                         fontFamily:
                           "'Helvetica Neue', Helvetica, Arial, sans-serif",
-                        fontWeight: 100,
+                        ...uppercaseOptimizedStyle,
                       }}
                     >
                       {texts[it.name] || it.name}
