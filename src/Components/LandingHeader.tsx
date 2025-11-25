@@ -130,7 +130,7 @@ function LandingPageHeader() {
               >
                 <Link
                   to={localePath('/projects')}
-                  className="uppercase text-white font-thin tracking-wide text-s hover:opacity-80 transition-opacity duration-300"
+                  className="text-white font-thin tracking-wide text-s hover:opacity-80 transition-opacity duration-300"
                   style={headerNavStyle}
                 >
                   {headerProjects}
