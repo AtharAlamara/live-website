@@ -12,6 +12,19 @@ function GlobalHeader() {
   const isAr = locale === 'ar';
   const toggleLabel = isAr ? 'EN' : 'العربية';
 
+  // Detect if user is on Mac
+  const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad|iPod/.test(navigator.platform);
+
+  // Shared style for all uppercase header nav links
+  const headerNavStyle = {
+    direction: locale === "ar" ? "rtl" : "ltr",
+    textAlign: locale === "ar" ? "right" : "left",
+    unicodeBidi: "isolate",
+    display: "inline-block",
+    fontWeight: isMac ? 300 : 100,
+    textShadow: isMac ? "none" : "0 0 0.5px rgba(0,0,0,0)",
+  };
+
   // Translated labels
   const [texts, setTexts] = useState<{ [key: string]: string }>({});
 
@@ -80,21 +93,21 @@ function GlobalHeader() {
                 <Link
                   to={localePath('/projects')}
                   className="uppercase text-white font-thin tracking-wide text-s hover:opacity-80 transition-opacity duration-300"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                  style={{ ...headerNavStyle, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
                 >
                   {headerProjects}
                 </Link>
                 <Link
                   to={localePath('/services')}
                   className="uppercase text-white font-thin tracking-wide text-s hover:opacity-80 transition-opacity duration-300"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                  style={{ ...headerNavStyle, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
                 >
                   {headerServices}
                 </Link>
                 <Link
                   to={localePath('/studio')}
                   className="uppercase text-white font-thin tracking-wide text-s hover:opacity-80 transition-opacity duration-300"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                  style={{ ...headerNavStyle, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
                 >
                   {headerStudio}
                 </Link>
@@ -123,21 +136,21 @@ function GlobalHeader() {
                 <Link
                   to={localePath('/news')}
                   className="uppercase text-white font-thin tracking-wide text-s hover:opacity-80 transition-opacity duration-300"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                  style={{ ...headerNavStyle, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
                 >
                   {headerNews}
                 </Link>
                 <Link
                   to={localePath('/contact')}
                   className="uppercase text-white font-thin tracking-wide text-s hover:opacity-80 transition-opacity duration-300"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                  style={{ ...headerNavStyle, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
                 >
                   {headerContact}
                 </Link>
                 <Link
                   to={localePath('/careers')}
                   className="uppercase text-white font-thin tracking-wide text-s hover:opacity-80 transition-opacity duration-300"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                  style={{ ...headerNavStyle, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
                 >
                   {headerCareers}
                 </Link>
@@ -148,7 +161,7 @@ function GlobalHeader() {
                 <button
                   onClick={setEnglish}
                   className="uppercase text-white font-thin tracking-wide text-[11px] ml-auto whitespace-nowrap hover:underline"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                  style={{ ...headerNavStyle, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
                 >
                   EN
                 </button>
@@ -156,7 +169,7 @@ function GlobalHeader() {
                 <button
                   onClick={setArabic}
                   className="uppercase text-white font-thin tracking-wide text-[11px] ml-auto whitespace-nowrap hover:underline"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                  style={{ ...headerNavStyle, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
                 >
                   العربية
                 </button>
@@ -223,7 +236,7 @@ function GlobalHeader() {
               key={path}
               to={localePath(path)}
               className="uppercase text-white font-thin tracking-wide text-xl hover:opacity-80 transition-opacity duration-300"
-              style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+              style={{ ...headerNavStyle, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {label}
@@ -249,7 +262,7 @@ function GlobalHeader() {
                 setEnglish();
               }}
               className="uppercase text-white font-thin tracking-wide text-[18px] whitespace-nowrap hover:underline"
-              style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+              style={{ ...headerNavStyle, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
             >
               EN
             </button>
@@ -260,7 +273,7 @@ function GlobalHeader() {
                 setArabic();
               }}
               className="uppercase text-white font-thin tracking-wide text-[18px] whitespace-nowrap hover:underline"
-              style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+              style={{ ...headerNavStyle, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
             >
               العربية
             </button>
