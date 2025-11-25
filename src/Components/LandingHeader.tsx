@@ -59,10 +59,9 @@ function LandingPageHeader() {
     textAlign: locale === "ar" ? "right" : "left",
     unicodeBidi: "isolate",
     display: "inline-block",
-    textShadow: "0 0 0.3px rgba(0,0,0,0)",
-    WebkitTextStrokeWidth: "0.3px",
-    WebkitTextStrokeColor: "transparent",
-    paintOrder: "stroke fill",
+    WebkitFontSmoothing: "antialiased",
+    MozOsxFontSmoothing: "grayscale",
+    textShadow: "0 0 0.5px rgba(0,0,0,0)",
   };
 
   return (
