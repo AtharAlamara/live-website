@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/athar-favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Athar Alamara Architecture</title>
+
+    <!-- Inter Web Font (fallback for Windows / non-mac devices) -->
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" 
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/assets/index-DLWoolrP.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CsefLvN5.css">
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <!-- Locale preference redirect (runs before app) -->
+    <script>
+      (function () {
+        try {
+          var m = document.cookie.match(/(?:^|;\s*)lang=(ar|en)(?:;|$)/i);
+          var pref = m ? m[1].toLowerCase() : null;
+          var path = location.pathname;
+
+          var isSa = (path === '/sa') || path.startsWith('/sa/');
+          if (pref === 'ar' && !isSa) {
+            location.replace('/sa' + path + location.search + location.hash);
+          } else if (pref === 'en' && isSa) {
+            location.replace(
+              path.replace(/^\/sa(\/?)/, function (_m, slash) { return slash ? '/' : ''; }) +
+              location.search + location.hash
+            );
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+  </body>
+</html>
