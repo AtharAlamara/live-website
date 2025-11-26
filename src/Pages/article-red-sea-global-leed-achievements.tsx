@@ -11,10 +11,8 @@ type Locale = 'en' | 'ar';
 
 const TABLE = 'ArticlePages';
 
-// Locale detector (URL + html/body + localStorage)
 function useLocale(): Locale {
   const { pathname } = useLocation();
-
   const read = React.useCallback<() => Locale>(() => {
     if (pathname.startsWith('/sa/')) return 'ar';
 
@@ -52,7 +50,7 @@ function useLocale(): Locale {
     window.addEventListener('athar:locale-changed', onEvt);
     const int = window.setInterval(() => { const cur = read(); if (cur !== loc) setLoc(cur); }, 500);
     return () => { mo1.disconnect(); mo2.disconnect(); window.removeEventListener('athar:locale-changed', onEvt); window.clearInterval(int); };
-  }, [read]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [read]);
 
   return loc;
 }
@@ -62,7 +60,7 @@ export default function Article6() {
   const isAr = locale === 'ar';
 
   const [texts, setTexts] = React.useState<TextMap>({});
-  const [enTexts, setEnTexts] = React.useState<TextMap>({}); // EN fallback
+  const [enTexts, setEnTexts] = React.useState<TextMap>({});
 
   React.useEffect(() => {
     let cancelled = false;
@@ -92,6 +90,7 @@ export default function Article6() {
           .from(TABLE)
           .select('name,texts,locale')
           .eq('locale', 'en');
+
         if (!cancelled) {
           if (enErr) {
             console.error('[Article6] fetch EN error:', enErr);
@@ -122,10 +121,8 @@ export default function Article6() {
     return fb;
   };
 
-  // ---- Keys base for this article (must match Supabase exactly)
   const base = 'article-red-sea-global-leed-achievements';
 
-  // Title (try page title first, then seo-title) + Intro
   const Title =
     t(`${base}-title`, '') ||
     t(`${base}-seo-title`, "Red Sea Global's LEED Achievements: Setting New Standards in Sustainable Tourism");
@@ -135,7 +132,6 @@ export default function Article6() {
     "The Red Sea coast has long been one of Saudi Arabia's most beautiful natural landscapes. Now, it's also becoming a benchmark for how large-scale development can move forward without leaving nature behind."
   );
 
-  // Sections
   const S1   = t(`${base}-s1`, 'Building With Nature in Mind');
   const S1P1 = t(`${base}-s1p1`, "From the beginning, Red Sea Global made it clear that its goal wasn't just to build resorts, but to do it in a way that respects the land.");
   const S1P2 = t(`${base}-s1p2`, 'LEED certification is one way that vision is being measured...');
@@ -148,11 +144,9 @@ export default function Article6() {
   const S3P1 = t(`${base}-s3p1`, 'This is a quiet but important turning point for tourism in Saudi Arabia...');
   const S3P2 = t(`${base}-s3p2`, "More importantly, it's setting an example...");
 
-  // Minimal SEO: title + intro
   const seoTitle = t(`${base}-seo-title`, Title);
   const seoDesc  = t(`${base}-seo-description`, Intro);
 
-  // Force H1 to align right in Arabic (keeps header/footer/gallery LTR)
   React.useEffect(() => {
     if (!isAr) return;
     const root = document.querySelector('.athar-rtl-article');
@@ -170,7 +164,6 @@ export default function Article6() {
     }
   }, [isAr, Title]);
 
-  // Related (titles localized via slug-based keys; EN fallback)
   const relatedArticles = [
     {
       id: 'Article1',
@@ -219,30 +212,7 @@ export default function Article6() {
 
       <ScrollToTop />
 
-      {/* Scope RTL only to the article title/body; keep Header/Footer/Related LTR */}
       <div className={isAr ? 'athar-rtl-article' : undefined}>
-        {isAr && (
-          <style>{`
-            .athar-rtl-article main .max-w-4xl .prose {
-              direction: rtl !important;
-              text-align: right !important;
-            }
-            .athar-rtl-article main .max-w-4xl .prose * {
-              direction: rtl !important;
-              text-align: inherit !important;
-            }
-            .athar-rtl-article main .max-w-4xl > h1 {
-              direction: rtl !important;
-              text-align: right !important;
-              display: block !important;
-              width: 100% !important;
-              margin-left: 0 !important;
-              margin-right: 0 !important;
-              align-self: stretch !important;
-              justify-self: end !important;
-            }
-          `}</style>
-        )}
 
         <ArticleTemplate
           title={Title}
@@ -254,32 +224,46 @@ export default function Article6() {
               <div className="h-6" />
 
               <div className="space-y-6">
+
+                {/* SECTION 1 */}
                 <h2
-                  className="text-2xl font-semibold text-[#2D2D2D]"
-                  style={{ fontFamily: "'Work Sans', sans-serif" }}
+                  className="text-2xl text-[#2D2D2D]"
+                  style={{
+                    fontFamily: isAr ? "'Tajawal', sans-serif" : "'Work Sans', sans-serif",
+                    fontWeight: isAr ? 400 : 600,
+                  }}
                 >
                   {S1}
                 </h2>
                 <p>{S1P1}</p>
                 <p>{S1P2}</p>
 
+                {/* SECTION 2 */}
                 <h2
-                  className="text-2xl font-semibold text-[#2D2D2D]"
-                  style={{ fontFamily: "'Work Sans', sans-serif" }}
+                  className="text-2xl text-[#2D2D2D]"
+                  style={{
+                    fontFamily: isAr ? "'Tajawal', sans-serif" : "'Work Sans', sans-serif",
+                    fontWeight: isAr ? 400 : 600,
+                  }}
                 >
                   {S2}
                 </h2>
                 <p>{S2P1}</p>
                 <p>{S2P2}</p>
 
+                {/* SECTION 3 */}
                 <h2
-                  className="text-2xl font-semibold text-[#2D2D2D]"
-                  style={{ fontFamily: "'Work Sans', sans-serif" }}
+                  className="text-2xl text-[#2D2D2D]"
+                  style={{
+                    fontFamily: isAr ? "'Tajawal', sans-serif" : "'Work Sans', sans-serif",
+                    fontWeight: isAr ? 400 : 600,
+                  }}
                 >
                   {S3}
                 </h2>
                 <p>{S3P1}</p>
                 <p>{S3P2}</p>
+
               </div>
             </>
           }
