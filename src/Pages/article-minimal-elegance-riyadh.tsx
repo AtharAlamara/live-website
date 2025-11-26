@@ -130,12 +130,12 @@ export default function Article2() {
   const S1P2 = t(`${base}-s1p2`, 'We work with clients who value environments that reduce visual noise...');
 
   const S2   = t(`${base}-s2`, 'A Reflection of Lifestyle');
-  const S2P1 = t(`${base}-s2p1`, 'The move toward contemporary minimalism often begins with a simple question: What do I actually need?');
-  const S2P2 = t(`${base}-s2p2`, 'This translates into integrated storage, thoughtful lighting, and layouts that make movement more fluid.');
+  const S2P1 = t(`${base}-s2p1`, 'The move toward contemporary minimalism begins with a simple question...');
+  const S2P2 = t(`${base}-s2p2`, 'This translates into integrated storage, thoughtful lighting, and fluid layouts.');
 
   const S3   = t(`${base}-s3`, 'Design That Respects the Local Context');
-  const S3P1 = t(`${base}-s3p1`, 'While the inspiration may draw from global aesthetics, true elegance comes from making it local.');
-  const S3P2 = t(`${base}-s3p2`, 'We avoid over-decoration and focus on proportion, materiality, and spatial flow...');
+  const S3P1 = t(`${base}-s3p1`, 'While global inspiration plays a role, true elegance comes from making it local.');
+  const S3P2 = t(`${base}-s3p2`, 'We avoid over-decoration and focus on proportion, materiality, and flow...');
 
   const seoTitle =
     t(`${base}-seo-title`, '') ||
@@ -162,37 +162,37 @@ export default function Article2() {
   const relatedArticles = [
     {
       id: 'Article1',
-      title: t('article-verified-leed-associates-title', 'Leading the Green Revolution: Our Journey as Verified LEED Associates in Saudi Arabia'),
+      title: t('article-verified-leed-associates-title', 'Leading the Green Revolution'),
       href: '/news/article-verified-leed-associates',
       image: 'https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtTyLJr6Fg0SOit9Ckny3R7jfb2vIrc8xQPopW',
     },
     {
       id: 'Article3',
-      title: t('article-intergrating-pool-in-landscape-title', 'Water as a Design Element: How Pools Redefine Spatial Experience'),
+      title: t('article-intergrating-pool-in-landscape-title', 'Water as a Design Element'),
       href: '/news/article-intergrating-pool-in-landscape',
       image: 'https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtFckTfdxORdr4iUQqXJuntjb6e1yHS7xlGVwT',
     },
     {
       id: 'Article4',
-      title: t('article-downtown-design-riyadh-2025-title', "Downtown Design Riyadh 2025: Showcasing Saudi's Creative Pulse"),
+      title: t('article-downtown-design-riyadh-2025-title', 'Downtown Design Riyadh 2025'),
       href: '/news/article-downtown-design-riyadh-2025',
       image: 'https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtq3mEMKz5afN5SMmPvhKDoJIycb2GWukwr4nT',
     },
     {
       id: 'Article5',
-      title: t('article-al-balad-renaissance-in-jeddah-title', "Al-Balad's Renaissance: Preserving Jeddah's Historic Heart"),
+      title: t('article-al-balad-renaissance-in-jeddah-title', "Al-Balad's Renaissance"),
       href: '/news/article-al-balad-renaissance-in-jeddah',
       image: 'https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtNKLqdj66dDplvfPWVh50xKR1sN7e9cUjYSBX',
     },
     {
       id: 'Article6',
-      title: t('article-red-sea-global-leed-achievements-title', "Red Sea Global's LEED Achievements: Setting New Standards in Sustainable Tourism"),
+      title: t('article-red-sea-global-leed-achievements-title', "Red Sea Global's LEED Achievements"),
       href: '/news/article-red-sea-global-leed-achievements',
       image: 'https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtxd2Q76HjegRM3wv9DYo1fsrmQpyJFN4hBGnc',
     },
     {
       id: 'Article7',
-      title: t('article-new-murabba-tranformation-title', "New Murabba: Transforming Riyadh's Urban Landscape"),
+      title: t('article-new-murabba-tranformation-title', 'New Murabba Urban Transformation'),
       href: '/news/article-new-murabba-tranformation',
       image: 'https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtl9519zj8py3SQgmqvbGXIfLdhR4r9PauEo0O',
     },
@@ -218,15 +218,11 @@ export default function Article2() {
               direction: rtl !important;
               text-align: inherit !important;
             }
-            .athar-rtl-article main .max-w-4xl > h1 {
-              direction: rtl !important;
-              text-align: right !important;
-              display: block !important;
-              width: 100% !important;
-              margin-left: 0 !important;
-              margin-right: 0 !important;
-              align-self: stretch !important;
-              justify-self: end !important;
+
+            /* RTL subtitles override */
+            .athar-rtl-article h2 {
+              font-family: 'Tajawal', sans-serif !important;
+              font-weight: 400 !important;
             }
           `}</style>
         )}
@@ -241,30 +237,46 @@ export default function Article2() {
               <div className="h-6" />
 
               <div className="space-y-6">
+
+                {/* SUBTITLE 1 */}
                 <h2
                   className="text-2xl font-semibold text-[#2D2D2D]"
-                  style={{ fontFamily: "'Work Sans', sans-serif" }}
+                  style={{
+                    fontFamily: isAr ? "'Tajawal', sans-serif" : "'Work Sans', sans-serif",
+                    fontWeight: isAr ? 400 : 600,
+                  }}
                 >
                   {S1}
                 </h2>
+
                 <p>{S1P1}</p>
                 <p>{S1P2}</p>
 
+                {/* SUBTITLE 2 */}
                 <h2
                   className="text-2xl font-semibold text-[#2D2D2D]"
-                  style={{ fontFamily: "'Work Sans', sans-serif" }}
+                  style={{
+                    fontFamily: isAr ? "'Tajawal', sans-serif" : "'Work Sans', sans-serif",
+                    fontWeight: isAr ? 400 : 600,
+                  }}
                 >
                   {S2}
                 </h2>
+
                 <p>{S2P1}</p>
                 <p>{S2P2}</p>
 
+                {/* SUBTITLE 3 */}
                 <h2
                   className="text-2xl font-semibold text-[#2D2D2D]"
-                  style={{ fontFamily: "'Work Sans', sans-serif" }}
+                  style={{
+                    fontFamily: isAr ? "'Tajawal', sans-serif" : "'Work Sans', sans-serif",
+                    fontWeight: isAr ? 400 : 600,
+                  }}
                 >
                   {S3}
                 </h2>
+
                 <p>{S3P1}</p>
                 <p>{S3P2}</p>
               </div>
@@ -274,7 +286,7 @@ export default function Article2() {
             title: isAr ? 'من مذكّراتنا' : 'More from our Journal',
             description: isAr
               ? 'اكتشف مقالات ورؤى إضافية من أثر العمارة.'
-              : 'Explore additional insights and stories from Athar Architecture.',
+              : 'Explore insights from Athar Architecture.',
             items: relatedArticles,
           }}
         />
