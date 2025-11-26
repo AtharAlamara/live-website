@@ -8,22 +8,20 @@ type RelatedItem = {
   id: string;
   href: string;
   image: string;
-  // key in DB for the related item title (e.g. "related-verified-leed-associates")
   titleKey: string;
   fallbackTitle: string;
 };
 
 interface ArticlesFromDBProps {
-  slug: string;           // e.g. "al-balad-renaissance-in-jeddah"
-  heroUrl: string | null; // main image
+  slug: string;
+  heroUrl: string | null;
   related: {
-    titleKey?: string;            // optional DB key for the "More from our Journal" header
-    fallbackTitle?: string;       // fallback for that header
-    descriptionKey?: string;      // optional DB key for the small desc under header
-    fallbackDescription?: string; // fallback
-    items: RelatedItem[];         // 6 cards
+    titleKey?: string;
+    fallbackTitle?: string;
+    descriptionKey?: string;
+    fallbackDescription?: string;
+    items: RelatedItem[];
   };
-  // Optional hard fallbacks so page still renders if DB is empty
   fallback?: {
     title?: string;
     intro?: string;
@@ -31,7 +29,7 @@ interface ArticlesFromDBProps {
     sub2Title?: string; sub2P1?: string; sub2P2?: string;
     sub3Title?: string; sub3P1?: string; sub3P2?: string;
   };
-  tableName?: string; // default "NewsArticles"
+  tableName?: string;
 }
 
 type TextMap = Record<string, string>;
@@ -43,7 +41,8 @@ export default function ArticlesFromDB({
   fallback,
   tableName = 'NewsArticles',
 }: ArticlesFromDBProps) {
-  // locale detection
+
+  // Locale detection
   const { pathname } = useLocation();
   const isAr = pathname.startsWith('/sa/');
   const locale = isAr ? 'ar' : 'en';
@@ -51,7 +50,6 @@ export default function ArticlesFromDB({
   const [texts, setTexts] = React.useState<TextMap>({});
   const [loading, setLoading] = React.useState(true);
 
-  // Helper: get first available string among keys
   const firstOf = (keys: string[], fb?: string) => {
     for (const k of keys) {
       const v = texts[k];
@@ -60,17 +58,13 @@ export default function ArticlesFromDB({
     return fb ?? '';
   };
 
-  // Keys generator for this article
-  // Example: "article:al-balad-renaissance-in-jeddah:title"
   const k = (field: string) => `article:${slug}:${field}`;
 
   React.useEffect(() => {
     let cancelled = false;
     (async () => {
       setLoading(true);
-      // fetch all rows for this locale that either:
-      // - belong to this article (name startsWith "article:<slug>:")
-      // - or are related header keys ("related:*") used for the gallery section
+
       const { data, error } = await supabase
         .from(tableName)
         .select('name,texts,locale')
@@ -91,7 +85,6 @@ export default function ArticlesFromDB({
         const val = String(row?.texts ?? '').trim();
         if (!key) return;
 
-        // Only keep rows that are either for this article or global related-*
         if (key.startsWith(`article:${slug}:`) || key.startsWith('related:') || key.startsWith('seo:')) {
           map[key] = val;
         }
@@ -100,8 +93,10 @@ export default function ArticlesFromDB({
       setTexts(map);
       setLoading(false);
     })();
+
     return () => { cancelled = true; };
   }, [locale, slug, tableName]);
+
 
   // Resolve fields
   const title   = firstOf([k('title')], fallback?.title);
@@ -119,7 +114,7 @@ export default function ArticlesFromDB({
   const sub3P1  = firstOf([k('sub3-p1')], fallback?.sub3P1);
   const sub3P2  = firstOf([k('sub3-p2')], fallback?.sub3P2);
 
-  // Related header (optional)
+  // Related header
   const relTitle = related.titleKey
     ? firstOf([related.titleKey], related.fallbackTitle || (isAr ? 'من مجلتنا' : 'More from our Journal'))
     : (related.fallbackTitle || (isAr ? 'من مجلتنا' : 'More from our Journal'));
@@ -128,13 +123,12 @@ export default function ArticlesFromDB({
     ? firstOf([related.descriptionKey], related.fallbackDescription || (isAr ? 'اكتشف مقالات إضافية' : 'Explore additional insights and stories from Athar Architecture.'))
     : (related.fallbackDescription || (isAr ? 'اكتشف مقالات إضافية' : 'Explore additional insights and stories from Athar Architecture.'));
 
-  // Resolve related item titles from DB using their titleKey
   const relatedItems = (related.items || []).map(item => ({
     ...item,
     title: firstOf([item.titleKey], item.fallbackTitle),
   }));
 
-  // SEO (simple rule you specified): title + intro
+  // SEO
   const seoTitle = title || (isAr ? 'الأخبار | أثر العمارة' : 'News | Athar Architecture');
   const seoDesc  = intro || '';
 
@@ -143,27 +137,27 @@ export default function ArticlesFromDB({
       <Helmet>
         <title>{seoTitle}</title>
         {seoDesc && <meta name="description" content={seoDesc} />}
-        {/* keep SEO minimal per your guidance */}
       </Helmet>
 
-      {/* The layout stays identical because we reuse your ArticleTemplate */}
       <ArticleTemplate
         title={title || ''}
         imageUrl={heroUrl}
         content={
           <>
-            {/* Intro */}
             {intro && <p>{intro}</p>}
 
             <div className="h-6" />
 
-            {/* Section 1 */}
+            {/* -------- SECTION 1 -------- */}
             {(sub1T || sub1P1 || sub1P2) && (
               <div className="space-y-6">
                 {sub1T && (
                   <h2
-                    className="text-2xl font-semibold text-[#2D2D2D]"
-                    style={{ fontFamily: "'Work Sans', sans-serif" }}
+                    className="text-2xl text-[#2D2D2D]"
+                    style={{
+                      fontFamily: "'Work Sans', sans-serif",
+                      fontWeight: isAr ? 700 : 600   // <<<<<< CHANGE APPLIED HERE
+                    }}
                   >
                     {sub1T}
                   </h2>
@@ -173,13 +167,16 @@ export default function ArticlesFromDB({
               </div>
             )}
 
-            {/* Section 2 */}
+            {/* -------- SECTION 2 -------- */}
             {(sub2T || sub2P1 || sub2P2) && (
               <div className="space-y-6 mt-8">
                 {sub2T && (
                   <h2
-                    className="text-2xl font-semibold text-[#2D2D2D]"
-                    style={{ fontFamily: "'Work Sans', sans-serif" }}
+                    className="text-2xl text-[#2D2D2D]"
+                    style={{
+                      fontFamily: "'Work Sans', sans-serif",
+                      fontWeight: isAr ? 700 : 600   // <<<<<< CHANGE APPLIED HERE
+                    }}
                   >
                     {sub2T}
                   </h2>
@@ -189,13 +186,16 @@ export default function ArticlesFromDB({
               </div>
             )}
 
-            {/* Section 3 */}
+            {/* -------- SECTION 3 -------- */}
             {(sub3T || sub3P1 || sub3P2) && (
               <div className="space-y-6 mt-8">
                 {sub3T && (
                   <h2
-                    className="text-2xl font-semibold text-[#2D2D2D]"
-                    style={{ fontFamily: "'Work Sans', sans-serif" }}
+                    className="text-2xl text-[#2D2D2D]"
+                    style={{
+                      fontFamily: "'Work Sans', sans-serif",
+                      fontWeight: isAr ? 700 : 600   // <<<<<< CHANGE APPLIED HERE
+                    }}
                   >
                     {sub3T}
                   </h2>
