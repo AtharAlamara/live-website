@@ -184,10 +184,11 @@ function NewsPage() {
       <PageWrapper>
         {/* CONTENT */}
         <main
-          className="relative z-10 bg-[#FFFFFF]"
-          dir={isAr ? 'rtl' : 'ltr'}
-          lang={isAr ? 'ar' : 'en'}
-        >
+  className="relative z-10 bg-[#FFFFFF]"
+  dir="ltr"   // ← FIXED (was: isAr ? 'rtl' : 'ltr')
+  lang={isAr ? 'ar' : 'en'}
+>
+
           {/* Mobile layout */}
           <div className="md:hidden">
             <div className="container mx-auto px-4 pt-20 space-y-8 pb-20">
