@@ -1,14 +1,22 @@
-/* -----------------------------------------------------
+/* ----------------------------------------------------- 
    ATHAR — Arabic Font Configuration
    Loads Tajawal in multiple weights
    Applies ONLY when <html> has .lang-ar
------------------------------------------------------- */
+----------------------------------------------------- */
 
 /* ---- Tajawal Arabic font faces ---- */
 @font-face {
   font-family: "AtharArabic";
   src: url("/fonts/Tajawal-Regular.woff2") format("woff2");
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AtharArabic";
+  src: url("/fonts/Tajawal-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
@@ -37,14 +45,14 @@
   font-display: swap;
 }
 
-/* -----------------------------------------------------
+/* ----------------------------------------------------- 
    APPLY ARABIC FONT ONLY WHEN <html class="lang-ar">
    - Do NOT override the entire site
    - Do NOT flip directions
    - Keep Tailwind font weights working
------------------------------------------------------- */
+----------------------------------------------------- */
 
-/* Apply the base Arabic font ONLY to <body> */
+/* Apply the base Arabic font to <body> */
 html.lang-ar body {
   font-family: "AtharArabic", sans-serif !important;
   font-weight: 400;
@@ -60,6 +68,18 @@ html.lang-ar body * {
 /* Allow numbers to remain natural width */
 html.lang-ar body {
   font-variant-numeric: proportional-nums;
+}
+
+/* LIGHT text — use ExtraLight weight 200 */
+html.lang-ar .font-light,
+html.lang-ar p {
+  font-weight: 200;
+}
+
+/* BOLD text — keep as is */
+html.lang-ar .font-bold,
+html.lang-ar h1 {
+  font-weight: 700;
 }
 
 /* IMPORTANT: 
