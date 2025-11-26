@@ -11,7 +11,6 @@ type Locale = 'en' | 'ar';
 
 const TABLE = 'ArticlePages';
 
-// Locale detector (URL + html/body + localStorage)
 function useLocale(): Locale {
   const { pathname } = useLocation();
 
@@ -51,8 +50,13 @@ function useLocale(): Locale {
     const onEvt = () => setLoc(read());
     window.addEventListener('athar:locale-changed', onEvt);
     const int = window.setInterval(() => { const cur = read(); if (cur !== loc) setLoc(cur); }, 500);
-    return () => { mo1.disconnect(); mo2.disconnect(); window.removeEventListener('athar:locale-changed', onEvt); window.clearInterval(int); };
-  }, [read]); // eslint-disable-line react-hooks/exhaustive-deps
+    return () => {
+      mo1.disconnect();
+      mo2.disconnect();
+      window.removeEventListener('athar:locale-changed', onEvt);
+      window.clearInterval(int);
+    };
+  }, [read]);
 
   return loc;
 }
@@ -62,10 +66,11 @@ export default function Article7() {
   const isAr = locale === 'ar';
 
   const [texts, setTexts] = React.useState<TextMap>({});
-  const [enTexts, setEnTexts] = React.useState<TextMap>({}); // EN fallback
+  const [enTexts, setEnTexts] = React.useState<TextMap>({});
 
   React.useEffect(() => {
     let cancelled = false;
+
     (async () => {
       const { data, error } = await supabase
         .from(TABLE)
@@ -92,6 +97,7 @@ export default function Article7() {
           .from(TABLE)
           .select('name,texts,locale')
           .eq('locale', 'en');
+
         if (!cancelled) {
           if (enErr) {
             console.error('[Article7] fetch EN error:', enErr);
@@ -122,10 +128,8 @@ export default function Article7() {
     return fb;
   };
 
-  // ---- Keys base (matches Supabase exactly)
   const base = 'article-new-murabba-tranformation';
 
-  // Title + Intro (with SEO fallbacks if you added those rows)
   const Title =
     t(`${base}-title`, '') ||
     t(`${base}-seo-title`, "New Murabba: Transforming Riyadh's Urban Landscape");
@@ -137,7 +141,6 @@ export default function Article7() {
       "Riyadh is growing in scale, but also in intention. The New Murabba development is a clear example of that shift..."
     );
 
-  // Sections
   const S1   = t(`${base}-s1`, 'A New Downtown With a Different Approach');
   const S1P1 = t(`${base}-s1p1`, "Located in the heart of Riyadh, New Murabba is designed to become a modern downtown...");
   const S1P2 = t(`${base}-s1p2`, 'At the center of it stands the Mukaab, a cube-shaped skyscraper...');
@@ -150,11 +153,9 @@ export default function Article7() {
   const S3P1 = t(`${base}-s3p1`, "As Riyadh expands, projects like New Murabba show that growth doesn't have to mean sprawl.");
   const S3P2 = t(`${base}-s3p2`, "It's still early, but the foundation being laid here could influence future neighborhoods...");
 
-  // Minimal SEO: title + intro
   const seoTitle = t(`${base}-seo-title`, Title);
   const seoDesc  = t(`${base}-seo-description`, Intro);
 
-  // Force H1 to align right in Arabic (keeps header/footer/gallery LTR)
   React.useEffect(() => {
     if (!isAr) return;
     const root = document.querySelector('.athar-rtl-article');
@@ -172,7 +173,6 @@ export default function Article7() {
     }
   }, [isAr, Title]);
 
-  // Related (titles localized via keys; EN fallback)
   const relatedArticles = [
     {
       id: 'Article1',
@@ -239,30 +239,7 @@ export default function Article7() {
 
       <ScrollToTop />
 
-      {/* Scope RTL only to the article title/body; keep Header/Footer/Related LTR */}
       <div className={isAr ? 'athar-rtl-article' : undefined}>
-        {isAr && (
-          <style>{`
-            .athar-rtl-article main .max-w-4xl .prose {
-              direction: rtl !important;
-              text-align: right !important;
-            }
-            .athar-rtl-article main .max-w-4xl .prose * {
-              direction: rtl !important;
-              text-align: inherit !important;
-            }
-            .athar-rtl-article main .max-w-4xl > h1 {
-              direction: rtl !important;
-              text-align: right !important;
-              display: block !important;
-              width: 100% !important;
-              margin-left: 0 !important;
-              margin-right: 0 !important;
-              align-self: stretch !important;
-              justify-self: end !important;
-            }
-          `}</style>
-        )}
 
         <ArticleTemplate
           title={Title}
@@ -274,32 +251,46 @@ export default function Article7() {
               <div className="h-6" />
 
               <div className="space-y-6">
+
+                {/* SECTION 1 */}
                 <h2
-                  className="text-2xl font-semibold text-[#2D2D2D]"
-                  style={{ fontFamily: "'Work Sans', sans-serif" }}
+                  className="text-2xl text-[#2D2D2D]"
+                  style={{
+                    fontFamily: isAr ? "'Tajawal', sans-serif" : "'Work Sans', sans-serif",
+                    fontWeight: isAr ? 400 : 600,
+                  }}
                 >
                   {S1}
                 </h2>
                 <p>{S1P1}</p>
                 <p>{S1P2}</p>
 
+                {/* SECTION 2 */}
                 <h2
-                  className="text-2xl font-semibold text-[#2D2D2D]"
-                  style={{ fontFamily: "'Work Sans', sans-serif" }}
+                  className="text-2xl text-[#2D2D2D]"
+                  style={{
+                    fontFamily: isAr ? "'Tajawal', sans-serif" : "'Work Sans', sans-serif",
+                    fontWeight: isAr ? 400 : 600,
+                  }}
                 >
                   {S2}
                 </h2>
                 <p>{S2P1}</p>
                 <p>{S2P2}</p>
 
+                {/* SECTION 3 */}
                 <h2
-                  className="text-2xl font-semibold text-[#2D2D2D]"
-                  style={{ fontFamily: "'Work Sans', sans-serif" }}
+                  className="text-2xl text-[#2D2D2D]"
+                  style={{
+                    fontFamily: isAr ? "'Tajawal', sans-serif" : "'Work Sans', sans-serif",
+                    fontWeight: isAr ? 400 : 600,
+                  }}
                 >
                   {S3}
                 </h2>
                 <p>{S3P1}</p>
                 <p>{S3P2}</p>
+
               </div>
             </>
           }
