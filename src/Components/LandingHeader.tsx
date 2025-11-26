@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, Instagram } from 'lucide-react';
+import { SiWhatsapp } from 'react-icons/si';
 import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
 import { getLocale, localePath, setArabic, setEnglish } from '../lib/useTranslations';
@@ -114,14 +115,28 @@ function LandingPageHeader() {
           <div className="hidden lg:flex items-center w-full">
             {/* Left Column */}
             <div className="flex-1 flex items-center">
-              <a
-                href="https://www.instagram.com/athar.alamara/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white mr-auto"
-              >
-                <Instagram size={13} />
-              </a>
+              {/* Icons Container - with flex-row-reverse for Arabic */}
+              <div className={`flex items-center gap-3 mr-3 ${isAr ? 'flex-row-reverse' : ''}`}>
+                {/* Instagram */}
+                <a
+                  href="https://www.instagram.com/athar.alamara/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white"
+                >
+                  <Instagram size={13} />
+                </a>
+
+                {/* WhatsApp */}
+                <a
+                  href="https://wa.me/966550867366"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white"
+                >
+                  <SiWhatsapp size={13} />
+                </a>
+              </div>
 
               {/* LEFT NAV GROUP */}
               <div
@@ -252,15 +267,29 @@ function LandingPageHeader() {
         </nav>
 
         {/* Bottom Icons & Language Toggle */}
-        <div className="flex justify-between items-center w-full px-6 pb-6">
-          <a
-            href="https://www.instagram.com/athar.alamara/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white"
-          >
-            <Instagram size={22} />
-          </a>
+        <div className={`flex justify-between items-center w-full px-6 pb-6 ${isAr ? 'flex-row-reverse' : ''}`}>
+          {/* Icons Container */}
+          <div className={`flex items-center gap-4 ${isAr ? 'flex-row-reverse' : ''}`}>
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/athar.alamara/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white"
+            >
+              <Instagram size={22} />
+            </a>
+
+            {/* WhatsApp */}
+            <a
+              href="https://wa.me/966550867366"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white"
+            >
+              <SiWhatsapp size={22} />
+            </a>
+          </div>
 
           {isAr ? (
             <button
