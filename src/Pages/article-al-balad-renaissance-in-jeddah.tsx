@@ -11,10 +11,8 @@ type Locale = 'en' | 'ar';
 
 const TABLE = 'ArticlePages';
 
-// Locale detector (URL + html/body + localStorage)
 function useLocale(): Locale {
   const { pathname } = useLocation();
-
   const read = React.useCallback<() => Locale>(() => {
     if (pathname.startsWith('/sa/')) return 'ar';
 
@@ -51,8 +49,13 @@ function useLocale(): Locale {
     const onEvt = () => setLoc(read());
     window.addEventListener('athar:locale-changed', onEvt);
     const int = window.setInterval(() => { const cur = read(); if (cur !== loc) setLoc(cur); }, 500);
-    return () => { mo1.disconnect(); mo2.disconnect(); window.removeEventListener('athar:locale-changed', onEvt); window.clearInterval(int); };
-  }, [read]); // eslint-disable-line react-hooks/exhaustive-deps
+    return () => { 
+      mo1.disconnect(); 
+      mo2.disconnect(); 
+      window.removeEventListener('athar:locale-changed', onEvt); 
+      window.clearInterval(int); 
+    };
+  }, [read]);
 
   return loc;
 }
@@ -62,7 +65,7 @@ export default function Article5() {
   const isAr = locale === 'ar';
 
   const [texts, setTexts] = React.useState<TextMap>({});
-  const [enTexts, setEnTexts] = React.useState<TextMap>({}); // EN fallback
+  const [enTexts, setEnTexts] = React.useState<TextMap>({});
 
   React.useEffect(() => {
     let cancelled = false;
@@ -142,7 +145,6 @@ export default function Article5() {
   const seoTitle = t(`${base}-seo-title`, Title);
   const seoDesc  = t(`${base}-seo-description`, Intro);
 
-  // HARD align the title right in AR by targeting the actual template structure
   React.useEffect(() => {
     if (!isAr) return;
     const root = document.querySelector('.athar-rtl-article');
@@ -160,7 +162,6 @@ export default function Article5() {
     }
   }, [isAr, Title]);
 
-  // Related (titles localized via Supabase keys; EN fallback)
   const relatedArticles = [
     {
       id: 'Article1',
@@ -196,7 +197,7 @@ export default function Article5() {
       id: 'Article7',
       title: t('article-new-murabba-tranformation-title', "New Murabba: Transforming Riyadh's Urban Landscape"),
       href: '/news/article-new-murabba-tranformation',
-      image: 'https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtl9519zj8py3SQgmqvbGXIfLdhR4r9PauEo0O',
+      image: 'https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtl9519zј8py3SQgmqvbGXIfLdhR4r9PauEo0O',
     },
   ];
 
@@ -209,33 +210,7 @@ export default function Article5() {
 
       <ScrollToTop />
 
-      {/* Scope to this page only */}
       <div className={isAr ? 'athar-rtl-article' : undefined}>
-        {isAr && (
-          <style>{`
-            /* Body copy lives inside .prose in ArticleTemplate */
-            .athar-rtl-article main .max-w-4xl .prose {
-              direction: rtl !important;
-              text-align: right !important;
-            }
-            .athar-rtl-article main .max-w-4xl .prose * {
-              direction: rtl !important;
-              text-align: inherit !important;
-            }
-
-            /* Title is the first h1 inside .max-w-4xl */
-            .athar-rtl-article main .max-w-4xl > h1 {
-              direction: rtl !important;
-              text-align: right !important;
-              display: block !important;
-              width: 100% !important;
-              margin-left: 0 !important;
-              margin-right: 0 !important;
-              align-self: stretch !important;   /* flex safety */
-              justify-self: end !important;     /* grid safety */
-            }
-          `}</style>
-        )}
 
         <ArticleTemplate
           title={Title}
@@ -247,32 +222,46 @@ export default function Article5() {
               <div className="h-6" />
 
               <div className="space-y-6">
+
+                {/* SECTION 1 */}
                 <h2
-                  className="text-2xl font-semibold text-[#2D2D2D]"
-                  style={{ fontFamily: "'Work Sans', sans-serif" }}
+                  className="text-2xl text-[#2D2D2D]"
+                  style={{
+                    fontFamily: isAr ? "'Tajawal', sans-serif" : "'Work Sans', sans-serif",
+                    fontWeight: isAr ? 400 : 600,
+                  }}
                 >
                   {S1}
                 </h2>
                 <p>{S1P1}</p>
                 <p>{S1P2}</p>
 
+                {/* SECTION 2 */}
                 <h2
-                  className="text-2xl font-semibold text-[#2D2D2D]"
-                  style={{ fontFamily: "'Work Sans', sans-serif" }}
+                  className="text-2xl text-[#2D2D2D]"
+                  style={{
+                    fontFamily: isAr ? "'Tajawal', sans-serif" : "'Work Sans', sans-serif",
+                    fontWeight: isAr ? 400 : 600,
+                  }}
                 >
                   {S2}
                 </h2>
                 <p>{S2P1}</p>
                 <p>{S2P2}</p>
 
+                {/* SECTION 3 */}
                 <h2
-                  className="text-2xl font-semibold text-[#2D2D2D]"
-                  style={{ fontFamily: "'Work Sans', sans-serif" }}
+                  className="text-2xl text-[#2D2D2D]"
+                  style={{
+                    fontFamily: isAr ? "'Tajawal', sans-serif" : "'Work Sans', sans-serif",
+                    fontWeight: isAr ? 400 : 600,
+                  }}
                 >
                   {S3}
                 </h2>
                 <p>{S3P1}</p>
                 <p>{S3P2}</p>
+
               </div>
             </>
           }
