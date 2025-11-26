@@ -50,9 +50,14 @@ function useLocale(): Locale {
     mo2.observe(body, { attributes: true, attributeFilter: ['dir','class'] });
     const onEvt = () => setLoc(read());
     window.addEventListener('athar:locale-changed', onEvt);
-    const int = window.setInterval(() => { const cur = read(); if (cur !== loc) setLoc(cur); }, 500);
-    return () => { mo1.disconnect(); mo2.disconnect(); window.removeEventListener('athar:locale-changed', onEvt); window.clearInterval(int); };
-  }, [read]); // eslint-disable-line react-hooks/exhaustive-deps
+    const int = window.setInterval(() => { const cur = read(); if (cur !== loc) setLoc(read()); }, 500);
+    return () => { 
+      mo1.disconnect(); 
+      mo2.disconnect(); 
+      window.removeEventListener('athar:locale-changed', onEvt); 
+      window.clearInterval(int); 
+    };
+  }, [read]);
 
   return loc;
 }
@@ -123,52 +128,28 @@ export default function Article3() {
   };
 
   // ---- Keys base for this article (MUST match Supabase exactly)
-  // NOTE: keep the typo "intergrating" to match DB keys.
+  // NOTE: keep the typo "intergrating"
   const base = 'article-intergrating-pool-in-landscape';
 
-  // Title + Intro
   const Title = t(`${base}-title`, 'Water as a Design Element: How Pools Redefine Spatial Experience');
-  const Intro = t(
-    `${base}-intro`,
-    'In Saudi residential architecture, outdoor space is not just an extension of the home—it is a core component of the living experience...'
-  );
+  const Intro = t(`${base}-intro`, 'In Saudi residential architecture, outdoor space is not just an extension of the home—it is a core component of...');
 
-  // Sections
   const S1   = t(`${base}-s1`, 'Between Climate and Comfort');
-  const S1P1 = t(
-    `${base}-s1p1`,
-    'In Saudi Arabia’s harsh climate, where heat defines much of the year...'
-  );
-  const S1P2 = t(
-    `${base}-s1p2`,
-    'Strategically placed, a pool can reduce radiant heat from hard surfaces...'
-  );
+  const S1P1 = t(`${base}-s1p1`, 'In Saudi Arabia’s harsh climate, where heat defines much of the year...');
+  const S1P2 = t(`${base}-s1p2`, 'Strategically placed pools can reduce radiant heat...');
 
   const S2   = t(`${base}-s2`, 'Privacy as a Core Design Principle');
-  const S2P1 = t(
-    `${base}-s2p1`,
-    'In Saudi homes, privacy shapes how outdoor spaces are felt and experienced—intimate, personal...'
-  );
-  const S2P2 = t(
-    `${base}-s2p2`,
-    'Here, water becomes more than a functional feature. It offers a moment of pause...'
-  );
+  const S2P1 = t(`${base}-s2p1`, 'In Saudi homes, privacy shapes how outdoor spaces are felt...');
+  const S2P2 = t(`${base}-s2p2`, 'Here, water becomes more than a functional feature...');
 
-  const S3   = t(`${base}-s3`, 'The stillness of water');
-  const S3P1 = t(
-    `${base}-s3p1`,
-    'In the stillness of water, architecture finds a quiet kind of balance...'
-  );
-  const S3P2 = t(
-    `${base}-s3p2`,
-    'Often, the purpose of the pool is not daily swimming, but rather to create a moment of emotional stillness...'
-  );
+  const S3   = t(`${base}-s3`, 'The Stillness of Water');
+  const S3P1 = t(`${base}-s3p1`, 'In the stillness of water, architecture finds a quiet balance...');
+  const S3P2 = t(`${base}-s3p2`, 'Often, the purpose of the pool is not daily swimming...');
 
-  // Minimal SEO: title + intro
   const seoTitle = t(`${base}-seo-title`, Title);
   const seoDesc  = t(`${base}-seo-description`, Intro);
 
-  // Force H1 to align right in Arabic (keeps header/footer/gallery LTR)
+  // Force H1 to align right in Arabic
   React.useEffect(() => {
     if (!isAr) return;
     const root = document.querySelector('.athar-rtl-article');
@@ -177,50 +158,43 @@ export default function Article3() {
     if (h1) {
       h1.style.direction = 'rtl';
       h1.style.textAlign = 'right';
-      h1.style.display = 'block';
-      h1.style.width = '100%';
-      (h1.style as any).alignSelf = 'stretch';
-      (h1.style as any).justifySelf = 'end';
-      h1.style.marginLeft = '0';
-      h1.style.marginRight = '0';
     }
   }, [isAr, Title]);
 
-  // Related (titles localized via slug-based keys; EN fallback)
   const relatedArticles = [
     {
       id: 'Article1',
-      title: t('article-verified-leed-associates-title', 'Leading the Green Revolution: Our Journey as Verified LEED Associates in Saudi Arabia'),
+      title: t('article-verified-leed-associates-title', 'Leading the Green Revolution...'),
       href: '/news/article-verified-leed-associates',
       image: 'https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtTyLJr6Fg0SOit9Ckny3R7jfb2vIrc8xQPopW',
     },
     {
       id: 'Article2',
-      title: t('article-minimal-elegance-riyadh-title', 'Minimalist Elegance: The Rise of Contemporary Interior Design in Saudi Homes'),
+      title: t('article-minimal-elegance-riyadh-title', 'Minimalist Elegance...'),
       href: '/news/article-minimal-elegance-riyadh',
       image: 'https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtAl10ozBqyzTtgxecSQfIm72pFYkLWlJ63Rd9',
     },
     {
       id: 'Article4',
-      title: t('article-downtown-design-riyadh-2025-title', "Downtown Design Riyadh 2025: Showcasing Saudi's Creative Pulse"),
+      title: t('article-downtown-design-riyadh-2025-title', 'Downtown Design Riyadh 2025...'),
       href: '/news/article-downtown-design-riyadh-2025',
       image: 'https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtq3mEMKz5afN5SMmPvhKDoJIycb2GWukwr4nT',
     },
     {
       id: 'Article5',
-      title: t('article-al-balad-renaissance-in-jeddah-title', "Al-Balad's Renaissance: Preserving Jeddah's Historic Heart"),
+      title: t('article-al-balad-renaissance-in-jeddah-title', "Al-Balad's Renaissance..."),
       href: '/news/article-al-balad-renaissance-in-jeddah',
       image: 'https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtNKLqdj66dDplvfPWVh50xKR1sN7e9cUjYSBX',
     },
     {
       id: 'Article6',
-      title: t('article-red-sea-global-leed-achievements-title', "Red Sea Global's LEED Achievements: Setting New Standards in Sustainable Tourism"),
+      title: t('article-red-sea-global-leed-achievements-title', "Red Sea Global's LEED Achievements..."),
       href: '/news/article-red-sea-global-leed-achievements',
       image: 'https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtxd2Q76HjegRM3wv9DYo1fsrmQpyJFN4hBGnc',
     },
     {
       id: 'Article7',
-      title: t('article-new-murabba-tranformation-title', "New Murabba: Transforming Riyadh's Urban Landscape"),
+      title: t('article-new-murabba-tranformation-title', "New Murabba..."),
       href: '/news/article-new-murabba-tranformation',
       image: 'https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtl9519zj8py3SQgmqvbGXIfLdhR4r9PauEo0O',
     },
@@ -235,27 +209,12 @@ export default function Article3() {
 
       <ScrollToTop />
 
-      {/* Scope RTL only to the article title/body; keep Header/Footer/Related LTR */}
       <div className={isAr ? 'athar-rtl-article' : undefined}>
         {isAr && (
           <style>{`
             .athar-rtl-article main .max-w-4xl .prose {
               direction: rtl !important;
               text-align: right !important;
-            }
-            .athar-rtl-article main .max-w-4xl .prose * {
-              direction: rtl !important;
-              text-align: inherit !important;
-            }
-            .athar-rtl-article main .max-w-4xl > h1 {
-              direction: rtl !important;
-              text-align: right !important;
-              display: block !important;
-              width: 100% !important;
-              margin-left: 0 !important;
-              margin-right: 0 !important;
-              align-self: stretch !important;
-              justify-self: end !important;
             }
           `}</style>
         )}
@@ -270,32 +229,46 @@ export default function Article3() {
               <div className="h-6" />
 
               <div className="space-y-6">
+
+                {/* SECTION 1 */}
                 <h2
-                  className="text-2xl font-semibold text-[#2D2D2D]"
-                  style={{ fontFamily: "'Work Sans', sans-serif" }}
+                  className="text-2xl text-[#2D2D2D]"
+                  style={{
+                    fontFamily: isAr ? "'Tajawal', sans-serif" : "'Work Sans', sans-serif",
+                    fontWeight: isAr ? 400 : 600,
+                  }}
                 >
                   {S1}
                 </h2>
                 <p>{S1P1}</p>
                 <p>{S1P2}</p>
 
+                {/* SECTION 2 */}
                 <h2
-                  className="text-2xl font-semibold text-[#2D2D2D]"
-                  style={{ fontFamily: "'Work Sans', sans-serif" }}
+                  className="text-2xl text-[#2D2D2D]"
+                  style={{
+                    fontFamily: isAr ? "'Tajawal', sans-serif" : "'Work Sans', sans-serif",
+                    fontWeight: isAr ? 400 : 600,
+                  }}
                 >
                   {S2}
                 </h2>
                 <p>{S2P1}</p>
                 <p>{S2P2}</p>
 
+                {/* SECTION 3 */}
                 <h2
-                  className="text-2xl font-semibold text-[#2D2D2D]"
-                  style={{ fontFamily: "'Work Sans', sans-serif" }}
+                  className="text-2xl text-[#2D2D2D]"
+                  style={{
+                    fontFamily: isAr ? "'Tajawal', sans-serif" : "'Work Sans', sans-serif",
+                    fontWeight: isAr ? 400 : 600,
+                  }}
                 >
                   {S3}
                 </h2>
                 <p>{S3P1}</p>
                 <p>{S3P2}</p>
+
               </div>
             </>
           }
