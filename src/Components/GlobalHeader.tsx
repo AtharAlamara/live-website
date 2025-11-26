@@ -79,25 +79,28 @@ function GlobalHeader() {
             {/* Left */}
             <div className="flex-1 flex items-center">
 
-              {/* Instagram */}
-              <a
-                href="https://www.instagram.com/athar.alamara/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white mr-3"
-              >
-                <Instagram size={13} />
-              </a>
+              {/* Icons Container - with flex-row-reverse for Arabic */}
+              <div className={`flex items-center gap-3 mr-3 ${isAr ? 'flex-row-reverse' : ''}`}>
+                {/* Instagram */}
+                <a
+                  href="https://www.instagram.com/athar.alamara/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white"
+                >
+                  <Instagram size={13} />
+                </a>
 
-              {/* WhatsApp (NEW) */}
-              <a
-                href="https://wa.me/966550867366"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white"
-              >
-                <SiWhatsapp size={13} />
-              </a>
+                {/* WhatsApp */}
+                <a
+                  href="https://wa.me/966550867366"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white"
+                >
+                  <SiWhatsapp size={13} />
+                </a>
+              </div>
 
               {/* LEFT NAV GROUP */}
               <div
@@ -257,28 +260,31 @@ function GlobalHeader() {
           ))}
         </nav>
 
-        {/* Bottom icons */}
-        <div className="flex justify-between items-center w-full px-6 pb-6">
+        {/* Bottom icons - with flex-row-reverse for Arabic */}
+        <div className={`flex justify-between items-center w-full px-6 pb-6 ${isAr ? 'flex-row-reverse' : ''}`}>
 
-          {/* Instagram */}
-          <a
-            href="https://www.instagram.com/athar.alamara/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white"
-          >
-            <Instagram size={22} />
-          </a>
+          {/* Icons Container */}
+          <div className={`flex items-center gap-4 ${isAr ? 'flex-row-reverse' : ''}`}>
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/athar.alamara/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white"
+            >
+              <Instagram size={22} />
+            </a>
 
-          {/* WhatsApp (NEW) */}
-          <a
-            href="https://wa.me/966550867366"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white ml-4"
-          >
-            <SiWhatsapp size={22} />
-          </a>
+            {/* WhatsApp */}
+            <a
+              href="https://wa.me/966550867366"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white"
+            >
+              <SiWhatsapp size={22} />
+            </a>
+          </div>
 
           {/* Language Toggle */}
           {isAr ? (
@@ -287,7 +293,7 @@ function GlobalHeader() {
                 setIsMobileMenuOpen(false);
                 setEnglish();
               }}
-              className="uppercase text-white font-thin tracking-wide text-[18px] whitespace-nowrap hover:underline ml-auto"
+              className="uppercase text-white font-thin tracking-wide text-[18px] whitespace-nowrap hover:underline"
               style={{ ...headerNavStyle, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
             >
               EN
@@ -298,7 +304,7 @@ function GlobalHeader() {
                 setIsMobileMenuOpen(false);
                 setArabic();
               }}
-              className="uppercase text-white font-thin tracking-wide text-[18px] whitespace-nowrap hover:underline ml-auto"
+              className="uppercase text-white font-thin tracking-wide text-[18px] whitespace-nowrap hover:underline"
               style={{ ...headerNavStyle, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
             >
               العربية
