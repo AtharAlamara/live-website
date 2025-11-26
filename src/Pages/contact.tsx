@@ -133,7 +133,6 @@ function ContactPage() {
 
       {/* HERO SECTION */}
       <section className="relative h-screen overflow-hidden">
-        {/* Desktop video */}
         <div className="hidden md:block absolute inset-0">
           <iframe
             src="https://customer-3a18rxl1od32bsw3.cloudflarestream.com/c445061d35592ab14069c6cf0415ae10/iframe?autoplay=1&muted=1&loop=1"
@@ -146,7 +145,6 @@ function ContactPage() {
           <div className="absolute inset-0 bg-black/20" />
         </div>
 
-        {/* ✅ Updated: Desktop title moves right for Arabic */}
         <div
           className={`hidden md:block absolute bottom-6 z-10 ${
             isAr ? 'right-10 text-right' : 'left-10 text-left'
@@ -160,7 +158,6 @@ function ContactPage() {
           </h1>
         </div>
 
-        {/* Mobile video */}
         <div className="block md:hidden absolute inset-0">
           <iframe
             src="https://customer-3a18rxl1od32bsw3.cloudflarestream.com/c445061d35592ab14069c6cf0415ae10/iframe?autoplay=1&muted=1&loop=1"
@@ -173,7 +170,6 @@ function ContactPage() {
           <div className="absolute inset-0 bg-black/20" />
         </div>
 
-        {/* ✅ Updated: Mobile title moves right for Arabic */}
         <div
           className={`block md:hidden absolute bottom-6 z-10 ${
             isAr ? 'right-4 text-right' : 'left-4 text-left'
@@ -189,7 +185,7 @@ function ContactPage() {
       </section>
 
       <PageWrapper>
-        {/* Mobile Layout */}
+        {/* MOBILE */}
         <main className="md:hidden bg-[#FFFFFF] text-[#000000] relative">
           <style>{`
             .animate-element { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
@@ -205,86 +201,105 @@ function ContactPage() {
                 className="space-y-4"
                 style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
               >
+                {/* PHONE */}
                 <div className="space-y-1">
-                  {/* Phone */}
-                  <div className="space-y-1">
-                    <p className="font-light text-xl">{t('{phone-label}', 'Phone')}</p>
-                    <div className="flex flex-col gap-2">
-                      <div className="flex items-start gap-2">
-                        <span className="text-[#000000] text-xl">•</span>
-                        <a
-                          href="https://wa.me/966550867366"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-lg font-thin hover:underline"
-                          style={{ fontWeight: 300 }}
-                        >
-                          <bdi>{t('{phone-1}', '+966 55 086 7366')}</bdi>
-                        </a>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <span className="text-[#000000] text-xl">•</span>
-                        <a
-                          href="https://wa.me/966530740220"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-lg font-thin hover:underline"
-                          style={{ fontWeight: 300 }}
-                        >
-                          <bdi>{t('{phone-2}', '+966 53 074 0220')}</bdi>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                  <p className="font-light text-xl">{t('{phone-label}', 'Phone')}</p>
+                  <div className="flex flex-col gap-2">
 
-                  {/* Emails */}
-                  <div className="space-y-1">
-                    <p className="font-light text-xl">{t('{emails-label}', 'Emails')}</p>
+                    {/* PHONE 1 */}
                     <div className="flex items-start gap-2">
                       <span className="text-[#000000] text-xl">•</span>
                       <a
-                        href={`mailto:${t('{email-1}', 'inquries@atharalamara.sa')}`}
-                        className="text-lg font-thin hover:underline"
-                        style={{ fontWeight: 300 }}
+                        href="https://wa.me/966550867366"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-lg hover:underline"
+                        style={{
+                          fontWeight: isAr ? 300 : 100,
+                          textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
+                        }}
                       >
-                        {t('{email-1}', 'inquries@atharalamara.sa')}
+                        <bdi>{t('{phone-1}', '+966 55 086 7366')}</bdi>
                       </a>
                     </div>
 
+                    {/* PHONE 2 */}
                     <div className="flex items-start gap-2">
                       <span className="text-[#000000] text-xl">•</span>
                       <a
-                        href={`mailto:${t('{email-2}', 'hr@atharalamara.sa')}`}
-                        className="text-lg font-thin hover:underline"
-                        style={{ fontWeight: 300 }}
+                        href="https://wa.me/966530740220"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-lg hover:underline"
+                        style={{
+                          fontWeight: isAr ? 300 : 100,
+                          textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
+                        }}
                       >
-                        {t('{email-2}', 'hr@atharalamara.sa')}
+                        <bdi>{t('{phone-2}', '+966 53 074 0220')}</bdi>
                       </a>
                     </div>
-                  </div>
 
-                  {/* Address */}
-                  <div className="space-y-1">
-                    <p className="font-light text-xl">{t('{address-label}', 'Address')}</p>
-                    <div className="flex items-start gap-2">
-                      <span className="text-[#000000] text-xl">•</span>
-                      <p className="text-lg font-thin">
-                        {t('{studio-address}', 'Al Takhassusi St., Riyadh, KSA')}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Hours */}
-                  <div className="space-y-1">
-                    <p className="font-light text-xl">{t('{hours-label}', 'Hours')}</p>
-                    <div className="flex items-start gap-2">
-                      <span className="text-[#000000] text-xl">•</span>
-                      <p className="text-lg font-thin">
-                        {t('{hours-value}', 'Sun–Thu, 9:00–17:00')}
-                      </p>
-                    </div>
                   </div>
                 </div>
+
+                {/* EMAILS */}
+                <div className="space-y-1">
+                  <p className="font-light text-xl">{t('{emails-label}', 'Emails')}</p>
+
+                  {/* EMAIL 1 */}
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#000000] text-xl">•</span>
+                    <a
+                      href={`mailto:${t('{email-1}', 'inquries@atharalamara.sa')}`}
+                      className="text-lg hover:underline"
+                      style={{
+                        fontWeight: isAr ? 300 : 100,
+                        textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
+                      }}
+                    >
+                      {t('{email-1}', 'inquries@atharalamara.sa')}
+                    </a>
+                  </div>
+
+                  {/* EMAIL 2 */}
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#000000] text-xl">•</span>
+                    <a
+                      href={`mailto:${t('{email-2}', 'hr@atharalamara.sa')}`}
+                      className="text-lg hover:underline"
+                      style={{
+                        fontWeight: isAr ? 300 : 100,
+                        textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
+                      }}
+                    >
+                      {t('{email-2}', 'hr@atharalamara.sa')}
+                    </a>
+                  </div>
+                </div>
+
+                {/* Address */}
+                <div className="space-y-1">
+                  <p className="font-light text-xl">{t('{address-label}', 'Address')}</p>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#000000] text-xl">•</span>
+                    <p className="text-lg font-thin">
+                      {t('{studio-address}', 'Al Takhassusi St., Riyadh, KSA')}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Hours */}
+                <div className="space-y-1">
+                  <p className="font-light text-xl">{t('{hours-label}', 'Hours')}</p>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#000000] text-xl">•</span>
+                    <p className="text-lg font-thin">
+                      {t('{hours-value}', 'Sun–Thu, 9:00–17:00')}
+                    </p>
+                  </div>
+                </div>
+
               </div>
             </div>
 
@@ -303,7 +318,7 @@ function ContactPage() {
           </div>
         </main>
 
-        {/* Desktop Layout */}
+        {/* DESKTOP */}
         <main className="hidden md:block bg-[#FFFFFF] text-[#000000] relative">
           <style>{`
             .animate-element { opacity: 0; transition: all 2s ease-out; }
@@ -317,66 +332,89 @@ function ContactPage() {
 
           <div className="px-6 md:px-12 pt-20 pb-20">
             <div className="max-w-7xl mx-auto grid grid-cols-2 gap-x-[4rem] items-center">
+
               <div ref={contactInfoRef} className="animate-element slide-left">
                 <div
                   className="space-y-4 mt-4"
                   style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
                 >
-                  {/* Phone */}
+
+                  {/* PHONE */}
                   <div className="space-y-1">
                     <p className="font-light text-xl">{t('{phone-label}', 'Phone')}</p>
                     <div className="flex flex-col gap-2">
+
+                      {/* PHONE 1 */}
                       <div className="flex items-start gap-2">
                         <span className="text-[#000000] text-xl">•</span>
                         <a
                           href="https://wa.me/966550867366"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-lg font-thin hover:underline"
-                          style={{ fontWeight: 300 }}
+                          className="text-lg hover:underline"
+                          style={{
+                            fontWeight: isAr ? 300 : 100,
+                            textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
+                          }}
                         >
                           <bdi>{t('{phone-1}', '+966 55 086 7366')}</bdi>
                         </a>
                       </div>
+
+                      {/* PHONE 2 */}
                       <div className="flex items-start gap-2">
                         <span className="text-[#000000] text-xl">•</span>
                         <a
                           href="https://wa.me/966530740220"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-lg font-thin hover:underline"
-                          style={{ fontWeight: 300 }}
+                          className="text-lg hover:underline"
+                          style={{
+                            fontWeight: isAr ? 300 : 100,
+                            textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
+                          }}
                         >
                           <bdi>{t('{phone-2}', '+966 53 074 0220')}</bdi>
                         </a>
                       </div>
+
                     </div>
                   </div>
 
-                  {/* Emails */}
+                  {/* EMAILS */}
                   <div className="space-y-1">
                     <p className="font-light text-xl">{t('{emails-label}', 'Emails')}</p>
+
+                    {/* EMAIL 1 */}
                     <div className="flex items-start gap-2">
                       <span className="text-[#000000] text-xl">•</span>
                       <a
                         href={`mailto:${t('{email-1}', 'inquries@atharalamara.sa')}`}
-                        className="text-lg font-thin hover:underline"
-                        style={{ fontWeight: 300 }}
+                        className="text-lg hover:underline"
+                        style={{
+                          fontWeight: isAr ? 300 : 100,
+                          textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
+                        }}
                       >
                         {t('{email-1}', 'inquries@atharalamara.sa')}
                       </a>
                     </div>
 
+                    {/* EMAIL 2 */}
                     <div className="flex items-start gap-2">
                       <span className="text-[#000000] text-xl">•</span>
                       <a
                         href={`mailto:${t('{email-2}', 'hr@atharalamara.sa')}`}
-                        className="text-lg font-thin hover:underline"
-                        style={{ fontWeight: 300 }}
+                        className="text-lg hover:underline"
+                        style={{
+                          fontWeight: isAr ? 300 : 100,
+                          textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
+                        }}
                       >
                         {t('{email-2}', 'hr@atharalamara.sa')}
                       </a>
                     </div>
+
                   </div>
 
                   {/* Address */}
@@ -400,6 +438,7 @@ function ContactPage() {
                       </p>
                     </div>
                   </div>
+
                 </div>
               </div>
 
@@ -415,6 +454,7 @@ function ContactPage() {
                   className="rounded-lg"
                 />
               </div>
+
             </div>
           </div>
         </main>
