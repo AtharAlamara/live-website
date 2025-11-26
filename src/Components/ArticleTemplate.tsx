@@ -42,7 +42,7 @@ function ArticleTemplate({ title, imageUrl, content, relatedArticles }: ArticleT
           )}
 
           {/* CONTENT WRAPPER */}
-          <div className=" max-w-none">
+          <div className="prose max-w-none">
 
             {/* IMPORTANT: wrap content without forcing weight */}
             <div 
