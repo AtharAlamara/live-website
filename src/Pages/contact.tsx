@@ -207,34 +207,35 @@ function ContactPage() {
               >
                 <div className="space-y-1">
                   {/* Phone */}
-<div className="space-y-1">
-  <p className="font-light text-xl">{t('{phone-label}', 'Phone')}</p>
-  <div className="flex flex-col gap-2">
-    <div className="flex items-start gap-2">
-      <span className="text-[#000000] text-xl">•</span>
-      <a
-        href="https://wa.me/966550867366"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-lg font-thin hover:underline"
-      >
-        <bdi>{t('{phone-1}', '+966 55 086 7366')}</bdi>
-      </a>
-    </div>
-    <div className="flex items-start gap-2">
-      <span className="text-[#000000] text-xl">•</span>
-      <a
-        href="https://wa.me/966530740220"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-lg font-thin hover:underline"
-      >
-        <bdi>{t('{phone-2}', '+966 53 074 0220')}</bdi>
-      </a>
-    </div>
-  </div>
-</div>
-
+                  <div className="space-y-1">
+                    <p className="font-light text-xl">{t('{phone-label}', 'Phone')}</p>
+                    <div className="flex flex-col gap-2">
+                      <div className="flex items-start gap-2">
+                        <span className="text-[#000000] text-xl">•</span>
+                        <a
+                          href="https://wa.me/966550867366"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-lg font-thin hover:underline"
+                          style={{ fontWeight: 300 }}
+                        >
+                          <bdi>{t('{phone-1}', '+966 55 086 7366')}</bdi>
+                        </a>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-[#000000] text-xl">•</span>
+                        <a
+                          href="https://wa.me/966530740220"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-lg font-thin hover:underline"
+                          style={{ fontWeight: 300 }}
+                        >
+                          <bdi>{t('{phone-2}', '+966 53 074 0220')}</bdi>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
 
                   {/* Emails */}
                   <div className="space-y-1">
@@ -244,6 +245,7 @@ function ContactPage() {
                       <a
                         href={`mailto:${t('{email-1}', 'inquries@atharalamara.sa')}`}
                         className="text-lg font-thin hover:underline"
+                        style={{ fontWeight: 300 }}
                       >
                         {t('{email-1}', 'inquries@atharalamara.sa')}
                       </a>
@@ -254,6 +256,7 @@ function ContactPage() {
                       <a
                         href={`mailto:${t('{email-2}', 'hr@atharalamara.sa')}`}
                         className="text-lg font-thin hover:underline"
+                        style={{ fontWeight: 300 }}
                       >
                         {t('{email-2}', 'hr@atharalamara.sa')}
                       </a>
@@ -320,34 +323,35 @@ function ContactPage() {
                   style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
                 >
                   {/* Phone */}
-<div className="space-y-1">
-  <p className="font-light text-xl">{t('{phone-label}', 'Phone')}</p>
-  <div className="flex flex-col gap-2">
-    <div className="flex items-start gap-2">
-      <span className="text-[#000000] text-xl">•</span>
-      <a
-        href="https://wa.me/966550867366"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-lg font-thin hover:underline"
-      >
-        <bdi>{t('{phone-1}', '+966 55 086 7366')}</bdi>
-      </a>
-    </div>
-    <div className="flex items-start gap-2">
-      <span className="text-[#000000] text-xl">•</span>
-      <a
-        href="https://wa.me/966530740220"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-lg font-thin hover:underline"
-      >
-        <bdi>{t('{phone-2}', '+966 53 074 0220')}</bdi>
-      </a>
-    </div>
-  </div>
-</div>
-
+                  <div className="space-y-1">
+                    <p className="font-light text-xl">{t('{phone-label}', 'Phone')}</p>
+                    <div className="flex flex-col gap-2">
+                      <div className="flex items-start gap-2">
+                        <span className="text-[#000000] text-xl">•</span>
+                        <a
+                          href="https://wa.me/966550867366"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-lg font-thin hover:underline"
+                          style={{ fontWeight: 300 }}
+                        >
+                          <bdi>{t('{phone-1}', '+966 55 086 7366')}</bdi>
+                        </a>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-[#000000] text-xl">•</span>
+                        <a
+                          href="https://wa.me/966530740220"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-lg font-thin hover:underline"
+                          style={{ fontWeight: 300 }}
+                        >
+                          <bdi>{t('{phone-2}', '+966 53 074 0220')}</bdi>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
 
                   {/* Emails */}
                   <div className="space-y-1">
@@ -357,6 +361,7 @@ function ContactPage() {
                       <a
                         href={`mailto:${t('{email-1}', 'inquries@atharalamara.sa')}`}
                         className="text-lg font-thin hover:underline"
+                        style={{ fontWeight: 300 }}
                       >
                         {t('{email-1}', 'inquries@atharalamara.sa')}
                       </a>
@@ -367,6 +372,7 @@ function ContactPage() {
                       <a
                         href={`mailto:${t('{email-2}', 'hr@atharalamara.sa')}`}
                         className="text-lg font-thin hover:underline"
+                        style={{ fontWeight: 300 }}
                       >
                         {t('{email-2}', 'hr@atharalamara.sa')}
                       </a>
