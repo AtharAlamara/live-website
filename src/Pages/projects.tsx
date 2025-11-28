@@ -60,7 +60,10 @@ function ProjectsPage() {
     { id: 15, title: "{space-cafe}", date: "2022", image: "https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtiO8ZYs7fcbVits87eYDgj5G4zflHLph1QRux", slug: "space-cafe", backgroundPosition: "center bottom" },
     { id: 16, title: "{thana-hitten}", date: "2023", image: "https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtjQdvQoUmUsC0XhLakHdiRypTbO5nS7lNoKA9", slug: "thana-hitten", backgroundPosition: "center 65%" },
     { id: 17, title: "{the-blue-mansion}", date: "2022", image: "https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtig3sVXfcbVits87eYDgj5G4zflHLph1QRuxw", slug: "the-blue-mansion" },
-    { id: 18, title: "{coming-soon}", date: "", image: "", slug: "", isComingSoon: true },
+    { id: 18, title: "{aljubailah-farm}", date: "2025", image: "https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtig3sVXfcbVits87eYDgj5G4zflHLph1QRuxw", slug: "aljubailah-farm" },
+    { id: 19, title: "{the-blue-mansion}", date: "2022", image: "https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtig3sVXfcbVits87eYDgj5G4zflHLph1QRuxw", slug: "the-blue-mansion" },
+    { id: 20, title: "{the-blue-mansion}", date: "2022", image: "https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtig3sVXfcbVits87eYDgj5G4zflHLph1QRuxw", slug: "the-blue-mansion" },
+    { id: 21, title: "{coming-soon}", date: "", image: "", slug: "", isComingSoon: true },
   ];
 
   return (
