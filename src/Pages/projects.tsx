@@ -63,7 +63,6 @@ function ProjectsPage() {
     { id: 18, title: "{aljubailah-farm}", date: "2025", image: "https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTt5bK6U2Lo4AGrMJHhYKm3gLkawENcRpdTxev0", slug: "aljubailah-farm" },
     { id: 19, title: "{saas-offices}", date: "2025", image: "https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtq39xpF15afN5SMmPvhKDoJIycb2GWukwr4nT", slug: "saas-offices" },
     { id: 20, title: "{terra-café}", date: "2025", image: "https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtX5LDfsuQ9S7C4WKjGuVoZwsviq3Yk2dtryPh", slug: "terra-café" },
-    { id: 21, title: "{coming-soon}", date: "", image: "", slug: "", isComingSoon: true },
   ];
 
   return (
