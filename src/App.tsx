@@ -143,6 +143,8 @@ function App() {
           <Route path="/sa/projects/thana-hitten" element={<Project16 />} />
           <Route path="/projects/the-blue-mansion" element={<Project17 />} />
           <Route path="/sa/projects/the-blue-mansion" element={<Project17 />} />
+          <Route path="/projects/aljubailah-farm" element={<Project18 />} />
+          <Route path="/sa/projects/aljubailah-farm" element={<Project18 />} />
         </Routes>
       </AnimatePresence>
     </Router>
