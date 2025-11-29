@@ -47,6 +47,7 @@ import Project16 from './Pages/Projects/thana-hitten';
 import Project17 from './Pages/Projects/the-blue-mansion';
 import Project18 from './Pages/Projects/aljubailah-farm';
 import Project19 from './Pages/Projects/saas-offices';
+import Project20 from './Pages/Projects/terra-café';
 
 function App() {
   return (
@@ -148,6 +149,8 @@ function App() {
           <Route path="/sa/projects/aljubailah-farm" element={<Project18 />} />
           <Route path="/projects/saas-offices" element={<Project19 />} />
           <Route path="/sa/projects/saas-offices" element={<Project19 />} />
+          <Route path="/projects/terra-café" element={<Project20 />} />
+          <Route path="/sa/projects/terra-café" element={<Project20 />} />
         </Routes>
       </AnimatePresence>
     </Router>
