@@ -6,7 +6,7 @@ export default function Project17() {
   return (
     <ProjectTemplate
       projectSlug="/projects/the-blue-mansion"
-      nextSlug="001-villa"
+      nextSlug="aljubailah-farm"
       prevSlug="thana-hitten"
     >
       {/* Project Images Grid */}
