@@ -368,21 +368,23 @@ function ContactPage() {
 
 
                       {/* PHONE 2 */}
-                      <div className="flex items-start gap-2">
-                        <span className="text-[#000000] text-xl">•</span>
-                        <a
-                          href="https://wa.me/966530740220"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-lg hover:underline"
-                          style={{
-                            fontWeight: isAr ? 300 : 100,
-                            textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
-                          }}
-                        >
-                          <bdi>{t('{phone-2}', '+966 53 074 0220')}</bdi>
-                        </a>
-                      </div>
+<div className="flex items-start gap-2">
+  <span className="text-[#000000] text-xl">•</span>
+  <a
+    href="https://wa.me/966530740220"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-lg hover:underline"
+    style={{
+      fontWeight: isAr ? 300 : 100,  // ⬅️ unchanged
+      opacity: isWinEn ? 0.65 : 1,   // ⬅️ Windows EN only
+      textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
+    }}
+  >
+    <bdi>{t('{phone-2}', '+966 53 074 0220')}</bdi>
+  </a>
+</div>
+
                     </div>
                   </div>
 
