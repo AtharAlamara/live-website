@@ -12,6 +12,10 @@ function TermsPage() {
   const { pathname } = useLocation();
   const locale = pathname.startsWith('/sa/') ? 'ar' : 'en';
   const isAr = locale === 'ar';
+  const arabicTextStyle = isAr
+  ? { opacity: 0.85 }
+  : undefined;
+
 
   // 2) fetch TermsPage rows
   const [texts, setTexts] = React.useState<Record<string, string>>({});
