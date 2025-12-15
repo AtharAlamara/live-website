@@ -444,7 +444,6 @@ function ContactPage() {
       </p>
     </div>
   </div>
-</div>
 
                   </div>
                 </div>
