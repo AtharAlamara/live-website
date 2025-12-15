@@ -129,6 +129,8 @@ export default function Article5() {
 
   const Title = t(`${base}-title`, "Al-Balad's Renaissance: Preserving Jeddah's Historic Heart");
   const Intro = t(`${base}-intro`, "In a city that's always changing, Al-Balad holds its ground...");
+  const Intro2 = t(`${base}-intro2`, "Today, Al-Balad is going through a quiet but meaningful...");
+
 
   const S1   = t(`${base}-s1`, 'A Story Built in Coral Stone and Wood');
   const S1P1 = t(`${base}-s1p1`, 'Al-Balad is more than a historic neighborhood...');
@@ -218,6 +220,7 @@ export default function Article5() {
           content={
             <>
               <p>{Intro}</p>
+              <p>{Intro2}</p>
 
               <div className="h-6" />
 
