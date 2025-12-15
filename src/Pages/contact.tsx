@@ -409,9 +409,9 @@ function ContactPage() {
                     </div>
 
                     {/* EMAIL 2 */}
-<div className="flex items-start gap-2">
-  <span className="text-[#000000] text-xl">•</span>
-  <a
+                    <div className="flex items-start gap-2">
+                      <span className="text-[#000000] text-xl">•</span>
+                      <a
     href={`mailto:${t('{email-2}', 'hr@atharalamara.sa')}`}
     className="text-lg hover:underline"
     style={{
@@ -422,8 +422,8 @@ function ContactPage() {
   >
     {t('{email-2}', 'hr@atharalamara.sa')}
   </a>
-</div>
-
+                    </div>
+                  </div>
 
                   {/* Address */}
   <div className="space-y-1">
