@@ -338,132 +338,114 @@ function ContactPage() {
             <div className="max-w-7xl mx-auto grid grid-cols-2 gap-x-[4rem] items-center">
               <div ref={contactInfoRef} className="animate-element slide-left">
                 <div className="space-y-4 mt-4" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
-                  {/* PHONE */}
-                  <div className="space-y-1">
-                    <p
-                      className="font-light text-xl"
-                      style={{ fontWeight: isAr ? 400 : undefined }}
-                    >
-                      {t('{phone-label}', 'Phone')}
-                    </p>
+  {/* PHONE */}
+  <div className="space-y-1">
+    <p
+      className="font-light text-xl"
+      style={{ fontWeight: isAr ? 400 : undefined }}
+    >
+      {t('{phone-label}', 'Phone')}
+    </p>
 
-                    <div className="flex flex-col gap-2">
-                      {/* PHONE 1 */}
-                      <div className="flex items-start gap-2">
-                        <span className="text-[#000000] text-xl">•</span>
-                        <a
-                          href="https://wa.me/966550867366"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-lg hover:underline"
-                          style={{
-                            fontWeight: isAr ? 300 : (!isAr && isWindows ? 200 : 100),
-                            textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
-                          }}
-                        >
-                          <bdi>{t('{phone-1}', '+966 55 086 7366')}</bdi>
-                        </a>
-                      </div>
+    <div className="flex flex-col gap-2">
+      {/* PHONE 1 */}
+      <div className="flex items-start gap-2">
+        <span className="text-[#000000] text-xl">•</span>
+        <a
+          href="https://wa.me/966550867366"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-lg hover:underline"
+          style={{
+            fontWeight: isAr ? 300 : 100,
+            opacity: isWinEn ? 0.65 : 1,
+          }}
+        >
+          <bdi>{t('{phone-1}', '+966 55 086 7366')}</bdi>
+        </a>
+      </div>
 
-                      {/* PHONE 2 */}
-                      <div className="flex items-start gap-2">
-                        <span className="text-[#000000] text-xl">•</span>
-                        <a
-                          href="https://wa.me/966530740220"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-lg hover:underline"
-                          style={{
-                            fontWeight: isAr ? 300 : 100,
-                            textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
-                          }}
-                        >
-                          <bdi>{t('{phone-2}', '+966 53 074 0220')}</bdi>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+      {/* PHONE 2 */}
+      <div className="flex items-start gap-2">
+        <span className="text-[#000000] text-xl">•</span>
+        <a
+          href="https://wa.me/966530740220"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-lg hover:underline"
+          style={{
+            fontWeight: isAr ? 300 : 100,
+            opacity: isWinEn ? 0.65 : 1,
+          }}
+        >
+          <bdi>{t('{phone-2}', '+966 53 074 0220')}</bdi>
+        </a>
+      </div>
+    </div>
+  </div>
 
-                  {/* EMAILS */}
-                  <div className="space-y-1">
-                    <p
-                      className="font-light text-xl"
-                      style={{ fontWeight: isAr ? 400 : undefined }}
-                    >
-                      {t('{emails-label}', 'Emails')}
-                    </p>
+  {/* EMAILS */}
+  <div className="space-y-1">
+    <p
+      className="font-light text-xl"
+      style={{ fontWeight: isAr ? 400 : undefined }}
+    >
+      {t('{emails-label}', 'Emails')}
+    </p>
 
-                    {/* EMAIL 1 */}
-                    <div className="flex items-start gap-2">
-                      <span className="text-[#000000] text-xl">•</span>
-                      <a
-                        href={`mailto:${t('{email-1}', 'inquries@atharalamara.sa')}`}
-                        className="text-lg hover:underline"
-                        style={{
-                          fontWeight: isAr ? 300 : 100,
-                          textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
-                        }}
-                      >
-                        {t('{email-1}', 'inquries@atharalamara.sa')}
-                      </a>
-                    </div>
+    {/* EMAIL 1 */}
+    <div className="flex items-start gap-2">
+      <span className="text-[#000000] text-xl">•</span>
+      <a
+        href={`mailto:${t('{email-1}', 'inquries@atharalamara.sa')}`}
+        className="text-lg hover:underline"
+        style={{
+          fontWeight: isAr ? 300 : 100,
+          opacity: isWinEn ? 0.65 : 1,
+        }}
+      >
+        {t('{email-1}', 'inquries@atharalamara.sa')}
+      </a>
+    </div>
 
-                    {/* EMAIL 2 */}
-                    <div className="flex items-start gap-2">
-                      <span className="text-[#000000] text-xl">•</span>
-                      <a
-                        href={`mailto:${t('{email-2}', 'hr@atharalamara.sa')}`}
-                        className="text-lg hover:underline"
-                        style={{
-                          fontWeight: isAr ? 300 : 100,
-                          textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
-                        }}
-                      >
-                        {t('{email-2}', 'hr@atharalamara.sa')}
-                      </a>
-                    </div>
-                  </div>
+    {/* EMAIL 2 */}
+    <div className="flex items-start gap-2">
+      <span className="text-[#000000] text-xl">•</span>
+      <a
+        href={`mailto:${t('{email-2}', 'hr@atharalamara.sa')}`}
+        className="text-lg hover:underline"
+        style={{
+          fontWeight: isAr ? 300 : 100,
+          opacity: isWinEn ? 0.65 : 1,
+        }}
+      >
+        {t('{email-2}', 'hr@atharalamara.sa')}
+      </a>
+    </div>
+  </div>
 
-                  {/* Address */}
-                  <div className="space-y-1">
-                    <p
-                      className="font-light text-xl"
-                      style={{ fontWeight: isAr ? 400 : undefined }}
-                    >
-                      {t('{address-label}', 'Address')}
-                    </p>
-                    <div className="flex items-start gap-2">
-                      <span className="text-[#000000] text-xl">•</span>
-                      <p
-                        className="text-lg font-thin"
-                        style={{
-                          fontWeight: !isAr && isWindows ? 200 : undefined,
-                        }}
-                      >
-                        {t('{studio-address}', 'Al Takhassusi St., Riyadh, KSA')}
-                      </p>
-                    </div>
-                  </div>
+  {/* Address */}
+  <div className="space-y-1">
+    <p
+      className="font-light text-xl"
+      style={{ fontWeight: isAr ? 400 : undefined }}
+    >
+      {t('{address-label}', 'Address')}
+    </p>
+    <div className="flex items-start gap-2">
+      <span className="text-[#000000] text-xl">•</span>
+      <p
+        className="text-lg font-thin"
+        style={{
+          opacity: isWinEn ? 0.65 : 1,
+        }}
+      >
+        {t('{studio-address}', 'Al Takhassusi St., Riyadh, KSA')}
+      </p>
+    </div>
+  </div>
+</div>
 
-                  {/* Hours */}
-                  <div className="space-y-1">
-                    <p
-                      className="font-light text-xl"
-                      style={{ fontWeight: isAr ? 400 : undefined }}
-                    >
-                      {t('{hours-label}', 'Hours')}
-                    </p>
-                    <div className="flex items-start gap-2">
-                      <span className="text-[#000000] text-xl">•</span>
-                      <p
-                        className="text-lg font-thin"
-                        style={{
-                          fontWeight: !isAr && isWindows ? 100 : undefined,
-                        }}
-                      >
-                        {t('{hours-value}', 'Sun–Thu, 9:00–17:00')}
-                      </p>
-                    </div>
                   </div>
                 </div>
               </div>
