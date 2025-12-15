@@ -132,6 +132,11 @@ export default function Article6() {
     "The Red Sea coast has long been one of Saudi Arabia's most beautiful natural landscapes. Now, it's also becoming a benchmark for how large-scale development can move forward without leaving nature behind."
   );
 
+  const Intro2 = t(
+    `${base}-intro2`,
+    "Red Sea Global is leading that shift, with several of its resorts and facilities earning LEED certifications — a first of its kind at this scale in the Kingdom."
+  );
+
   const S1   = t(`${base}-s1`, 'Building With Nature in Mind');
   const S1P1 = t(`${base}-s1p1`, "From the beginning, Red Sea Global made it clear that its goal wasn't just to build resorts, but to do it in a way that respects the land.");
   const S1P2 = t(`${base}-s1p2`, 'LEED certification is one way that vision is being measured...');
@@ -220,7 +225,8 @@ export default function Article6() {
           content={
             <>
               <p>{Intro}</p>
-
+              <p>{Intro2}</p>
+              
               <div className="h-6" />
 
               <div className="space-y-6">
