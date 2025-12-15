@@ -12,6 +12,11 @@ function ContactPage() {
   const isAr = pathname.startsWith('/sa/');
   const locale = isAr ? 'ar' : 'en';
 
+  // ✅ Windows detection (used ONLY for the specific Windows-English thinning request)
+  const isWindows =
+    typeof navigator !== 'undefined' &&
+    navigator.platform.toLowerCase().includes('win');
+
   const [texts, setTexts] = React.useState<Record<string, string>>({});
 
   useEffect(() => {
@@ -78,54 +83,27 @@ function ContactPage() {
         <title>{t('{seo-contact-title}', 'Athar Architecture | Contact')}</title>
         <meta
           name="description"
-          content={t(
-            '{seo-contact-description}',
-            'Contact Athar Architecture | Riyadh, Saudi Arabia.'
-          )}
+          content={t('{seo-contact-description}', 'Contact Athar Architecture | Riyadh, Saudi Arabia.')}
         />
         <meta
           name="keywords"
-          content={t(
-            '{seo-contact-keywords}',
-            'contact architecture Riyadh, interior design consultation Saudi Arabia'
-          )}
+          content={t('{seo-contact-keywords}', 'contact architecture Riyadh, interior design consultation Saudi Arabia')}
         />
-        <meta
-          property="og:title"
-          content={t('{seo-contact-og-title}', 'Athar Architecture | Contact')}
-        />
+        <meta property="og:title" content={t('{seo-contact-og-title}', 'Athar Architecture | Contact')} />
         <meta
           property="og:description"
-          content={t(
-            '{seo-contact-og-description}',
-            'Contact Athar Architecture | Riyadh, Saudi Arabia.'
-          )}
+          content={t('{seo-contact-og-description}', 'Contact Athar Architecture | Riyadh, Saudi Arabia.')}
         />
-        <meta
-          property="og:image"
-          content={t('{seo-contact-og-image}', '/Athar Final.png')}
-        />
+        <meta property="og:image" content={t('{seo-contact-og-image}', '/Athar Final.png')} />
         <meta property="og:type" content={t('{seo-contact-og-type}', 'website')} />
         <meta property="og:url" content={t('{seo-contact-og-url}', fallbackOgUrl)} />
-        <meta
-          name="twitter:card"
-          content={t('{seo-contact-twitter-card}', 'summary_large_image')}
-        />
-        <meta
-          name="twitter:title"
-          content={t('{seo-contact-twitter-title}', 'Athar Architecture | Contact')}
-        />
+        <meta name="twitter:card" content={t('{seo-contact-twitter-card}', 'summary_large_image')} />
+        <meta name="twitter:title" content={t('{seo-contact-twitter-title}', 'Athar Architecture | Contact')} />
         <meta
           name="twitter:description"
-          content={t(
-            '{seo-contact-twitter-description}',
-            'Contact Athar Architecture | Riyadh, Saudi Arabia.'
-          )}
+          content={t('{seo-contact-twitter-description}', 'Contact Athar Architecture | Riyadh, Saudi Arabia.')}
         />
-        <meta
-          name="twitter:image"
-          content={t('{seo-contact-twitter-image}', '/Athar Final.png')}
-        />
+        <meta name="twitter:image" content={t('{seo-contact-twitter-image}', '/Athar Final.png')} />
       </Helmet>
 
       <ScrollToTop />
@@ -197,15 +175,17 @@ function ContactPage() {
 
           <div className="px-6 md:px-12 pt-20 pb-20">
             <div ref={mobileContactRef} className="animate-element delay-1000">
-              <div
-                className="space-y-4"
-                style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
-              >
+              <div className="space-y-4" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
                 {/* PHONE */}
                 <div className="space-y-1">
-                  <p className="font-light text-xl">{t('{phone-label}', 'Phone')}</p>
-                  <div className="flex flex-col gap-2">
+                  <p
+                    className="font-light text-xl"
+                    style={{ fontWeight: isAr ? 400 : undefined }}
+                  >
+                    {t('{phone-label}', 'Phone')}
+                  </p>
 
+                  <div className="flex flex-col gap-2">
                     {/* PHONE 1 */}
                     <div className="flex items-start gap-2">
                       <span className="text-[#000000] text-xl">•</span>
@@ -239,13 +219,17 @@ function ContactPage() {
                         <bdi>{t('{phone-2}', '+966 53 074 0220')}</bdi>
                       </a>
                     </div>
-
                   </div>
                 </div>
 
                 {/* EMAILS */}
                 <div className="space-y-1">
-                  <p className="font-light text-xl">{t('{emails-label}', 'Emails')}</p>
+                  <p
+                    className="font-light text-xl"
+                    style={{ fontWeight: isAr ? 400 : undefined }}
+                  >
+                    {t('{emails-label}', 'Emails')}
+                  </p>
 
                   {/* EMAIL 1 */}
                   <div className="flex items-start gap-2">
@@ -280,10 +264,20 @@ function ContactPage() {
 
                 {/* Address */}
                 <div className="space-y-1">
-                  <p className="font-light text-xl">{t('{address-label}', 'Address')}</p>
+                  <p
+                    className="font-light text-xl"
+                    style={{ fontWeight: isAr ? 400 : undefined }}
+                  >
+                    {t('{address-label}', 'Address')}
+                  </p>
                   <div className="flex items-start gap-2">
                     <span className="text-[#000000] text-xl">•</span>
-                    <p className="text-lg font-thin">
+                    <p
+                      className="text-lg font-thin"
+                      style={{
+                        fontWeight: !isAr && isWindows ? 100 : undefined,
+                      }}
+                    >
                       {t('{studio-address}', 'Al Takhassusi St., Riyadh, KSA')}
                     </p>
                   </div>
@@ -291,15 +285,24 @@ function ContactPage() {
 
                 {/* Hours */}
                 <div className="space-y-1">
-                  <p className="font-light text-xl">{t('{hours-label}', 'Hours')}</p>
+                  <p
+                    className="font-light text-xl"
+                    style={{ fontWeight: isAr ? 400 : undefined }}
+                  >
+                    {t('{hours-label}', 'Hours')}
+                  </p>
                   <div className="flex items-start gap-2">
                     <span className="text-[#000000] text-xl">•</span>
-                    <p className="text-lg font-thin">
+                    <p
+                      className="text-lg font-thin"
+                      style={{
+                        fontWeight: !isAr && isWindows ? 100 : undefined,
+                      }}
+                    >
                       {t('{hours-value}', 'Sun–Thu, 9:00–17:00')}
                     </p>
                   </div>
                 </div>
-
               </div>
             </div>
 
@@ -332,18 +335,18 @@ function ContactPage() {
 
           <div className="px-6 md:px-12 pt-20 pb-20">
             <div className="max-w-7xl mx-auto grid grid-cols-2 gap-x-[4rem] items-center">
-
               <div ref={contactInfoRef} className="animate-element slide-left">
-                <div
-                  className="space-y-4 mt-4"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
-                >
-
+                <div className="space-y-4 mt-4" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
                   {/* PHONE */}
                   <div className="space-y-1">
-                    <p className="font-light text-xl">{t('{phone-label}', 'Phone')}</p>
-                    <div className="flex flex-col gap-2">
+                    <p
+                      className="font-light text-xl"
+                      style={{ fontWeight: isAr ? 400 : undefined }}
+                    >
+                      {t('{phone-label}', 'Phone')}
+                    </p>
 
+                    <div className="flex flex-col gap-2">
                       {/* PHONE 1 */}
                       <div className="flex items-start gap-2">
                         <span className="text-[#000000] text-xl">•</span>
@@ -377,13 +380,17 @@ function ContactPage() {
                           <bdi>{t('{phone-2}', '+966 53 074 0220')}</bdi>
                         </a>
                       </div>
-
                     </div>
                   </div>
 
                   {/* EMAILS */}
                   <div className="space-y-1">
-                    <p className="font-light text-xl">{t('{emails-label}', 'Emails')}</p>
+                    <p
+                      className="font-light text-xl"
+                      style={{ fontWeight: isAr ? 400 : undefined }}
+                    >
+                      {t('{emails-label}', 'Emails')}
+                    </p>
 
                     {/* EMAIL 1 */}
                     <div className="flex items-start gap-2">
@@ -414,15 +421,24 @@ function ContactPage() {
                         {t('{email-2}', 'hr@atharalamara.sa')}
                       </a>
                     </div>
-
                   </div>
 
                   {/* Address */}
                   <div className="space-y-1">
-                    <p className="font-light text-xl">{t('{address-label}', 'Address')}</p>
+                    <p
+                      className="font-light text-xl"
+                      style={{ fontWeight: isAr ? 400 : undefined }}
+                    >
+                      {t('{address-label}', 'Address')}
+                    </p>
                     <div className="flex items-start gap-2">
                       <span className="text-[#000000] text-xl">•</span>
-                      <p className="text-lg font-thin">
+                      <p
+                        className="text-lg font-thin"
+                        style={{
+                          fontWeight: !isAr && isWindows ? 100 : undefined,
+                        }}
+                      >
                         {t('{studio-address}', 'Al Takhassusi St., Riyadh, KSA')}
                       </p>
                     </div>
@@ -430,15 +446,24 @@ function ContactPage() {
 
                   {/* Hours */}
                   <div className="space-y-1">
-                    <p className="font-light text-xl">{t('{hours-label}', 'Hours')}</p>
+                    <p
+                      className="font-light text-xl"
+                      style={{ fontWeight: isAr ? 400 : undefined }}
+                    >
+                      {t('{hours-label}', 'Hours')}
+                    </p>
                     <div className="flex items-start gap-2">
                       <span className="text-[#000000] text-xl">•</span>
-                      <p className="text-lg font-thin">
+                      <p
+                        className="text-lg font-thin"
+                        style={{
+                          fontWeight: !isAr && isWindows ? 100 : undefined,
+                        }}
+                      >
                         {t('{hours-value}', 'Sun–Thu, 9:00–17:00')}
                       </p>
                     </div>
                   </div>
-
                 </div>
               </div>
 
@@ -454,7 +479,6 @@ function ContactPage() {
                   className="rounded-lg"
                 />
               </div>
-
             </div>
           </div>
         </main>
