@@ -196,7 +196,7 @@ export default function ServiceTemplate({
                   className="text-xl mb-2 font-light"
                   style={{
                     fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-                    fontWeight: isAr && isWindows ? 600 : 300,
+                    fontWeight: isAr && isWindows ? 400 : 300,
                   }}
                 >
                   {subtitle}
