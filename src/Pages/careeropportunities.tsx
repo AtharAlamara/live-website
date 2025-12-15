@@ -15,9 +15,17 @@ function CareerOpportunities() {
   const mobileHeadlineRef = useRef<HTMLDivElement | null>(null);
   const welcomeRef = useRef<HTMLDivElement | null>(null);
 
-  // locale from path
-  const { pathname } = useLocation();
-  const locale = pathname.startsWith('/sa/') ? 'ar' : 'en';
+ // locale from path
+const { pathname } = useLocation();
+const locale = pathname.startsWith('/sa/') ? 'ar' : 'en';
+
+// ✅ Windows detection (safe + no white screen)
+const isWindows =
+  typeof navigator !== 'undefined' &&
+  /win/i.test(navigator.platform || navigator.userAgent);
+
+// ✅ Only Windows + English
+const isWinEn = locale === 'en' && isWindows;
 
 
 
