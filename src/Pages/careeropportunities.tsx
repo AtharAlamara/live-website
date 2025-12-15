@@ -18,10 +18,7 @@ function CareerOpportunities() {
   // locale from path
   const { pathname } = useLocation();
   const locale = pathname.startsWith('/sa/') ? 'ar' : 'en';
-  const isWindows =
 
-
-const isWinEn = !isAr && isWindows;
 
 
   // translations from Supabase (CareersPage)
