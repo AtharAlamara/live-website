@@ -412,38 +412,37 @@ function ContactPage() {
                     <div className="flex items-start gap-2">
                       <span className="text-[#000000] text-xl">•</span>
                       <a
-    href={`mailto:${t('{email-2}', 'hr@atharalamara.sa')}`}
-    className="text-lg hover:underline"
-    style={{
-      fontWeight: isAr ? 300 : undefined, // keep Arabic behavior
-      opacity: isWinEn ? 0.82 : 1,        // ✅ visually thinner ONLY on Windows + English
-      textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
-    }}
-  >
-    {t('{email-2}', 'hr@atharalamara.sa')}
-  </a>
+                        href={`mailto:${t('{email-2}', 'hr@atharalamara.sa')}`}
+                        className="text-lg hover:underline"
+                        style={{
+                          fontWeight: isAr ? 300 : 100,
+                          textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
+                        }}
+                      >
+                        {t('{email-2}', 'hr@atharalamara.sa')}
+                      </a>
                     </div>
                   </div>
 
                   {/* Address */}
-  <div className="space-y-1">
-    <p
-      className="font-light text-xl"
-      style={{ fontWeight: isAr ? 400 : undefined }}
-    >
-      {t('{address-label}', 'Address')}
-    </p>
-    <div className="flex items-start gap-2">
-      <span className="text-[#000000] text-xl">•</span>
-      <p
-        className="text-lg font-thin"
-        style={{
-          opacity: isWinEn ? 0.65 : 1,
-        }}
-      >
-        {t('{studio-address}', 'Al Takhassusi St., Riyadh, KSA')}
-      </p>
-    </div>
+                  <div className="space-y-1">
+                    <p
+                      className="font-light text-xl"
+                      style={{ fontWeight: isAr ? 400 : undefined }}
+                    >
+                      {t('{address-label}', 'Address')}
+                    </p>
+                    <div className="flex items-start gap-2">
+                      <span className="text-[#000000] text-xl">•</span>
+                      <p
+                        className="text-lg font-thin"
+                        style={{
+                          fontWeight: !isAr && isWindows ? 200 : undefined,
+                        }}
+                      >
+                        {t('{studio-address}', 'Al Takhassusi St., Riyadh, KSA')}
+                      </p>
+                    </div>
                   </div>
 
                   {/* Hours */}
