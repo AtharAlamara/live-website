@@ -224,8 +224,11 @@ export default function Article6() {
           imageUrl="https://2sdiz6bji6.ufs.sh/f/A7G6PIBqyzTtxd2Q76HjegRM3wv9DYo1fsrmQpyJFN4hBGnc"
           content={
             <>
-              <p>{Intro}</p>
-              <p>{Intro2}</p>
+              <div className="space-y-4">
+  <p>{Intro}</p>
+  <p>{Intro2}</p>
+</div>
+
               
               <div className="h-6" />
 
