@@ -409,20 +409,21 @@ function ContactPage() {
                     </div>
 
                     {/* EMAIL 2 */}
-                    <div className="flex items-start gap-2">
-                      <span className="text-[#000000] text-xl">•</span>
-                      <a
-                        href={`mailto:${t('{email-2}', 'hr@atharalamara.sa')}`}
-                        className="text-lg hover:underline"
-                        style={{
-                          fontWeight: isAr ? 300 : 100,
-                          textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
-                        }}
-                      >
-                        {t('{email-2}', 'hr@atharalamara.sa')}
-                      </a>
-                    </div>
-                  </div>
+<div className="flex items-start gap-2">
+  <span className="text-[#000000] text-xl">•</span>
+  <a
+    href={`mailto:${t('{email-2}', 'hr@atharalamara.sa')}`}
+    className="text-lg hover:underline"
+    style={{
+      fontWeight: isAr ? 300 : undefined, // keep Arabic behavior
+      opacity: isWinEn ? 0.82 : 1,        // ✅ visually thinner ONLY on Windows + English
+      textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
+    }}
+  >
+    {t('{email-2}', 'hr@atharalamara.sa')}
+  </a>
+</div>
+
 
                   {/* Address */}
   <div className="space-y-1">
