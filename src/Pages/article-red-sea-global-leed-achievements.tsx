@@ -222,6 +222,7 @@ export default function Article6() {
           content={
             <>
               <p>{Intro}</p>
+              <p>{Intro2}</p>
 
               <div className="h-6" />
 
