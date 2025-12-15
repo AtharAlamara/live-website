@@ -283,7 +283,7 @@ export default function Article2() {
 
                 <p>{S3P1}</p>
                 <p>{S3P2}</p>
-                <p>{S3P3}</p>
+                {!isAr && <p>{S3P3}</p>}
               </div>
             </>
           }
