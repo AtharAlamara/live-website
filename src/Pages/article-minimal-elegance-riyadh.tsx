@@ -132,6 +132,8 @@ export default function Article2() {
   const S2   = t(`${base}-s2`, 'A Reflection of Lifestyle');
   const S2P1 = t(`${base}-s2p1`, 'The move toward contemporary minimalism begins with a simple question...');
   const S2P2 = t(`${base}-s2p2`, 'This translates into integrated storage, thoughtful lighting, and fluid layouts.');
+  const S2P3 = t(`${base}-s2p3`, 'Minimalist design, in this context, becomes a tool for living more...');
+
 
   const S3   = t(`${base}-s3`, 'Design That Respects the Local Context');
   const S3P1 = t(`${base}-s3p1`, 'While global inspiration plays a role, true elegance comes from making it local.');
@@ -265,7 +267,7 @@ export default function Article2() {
 
                 <p>{S2P1}</p>
                 <p>{S2P2}</p>
-            
+                <p>{S2P3}</p>
 
                 {/* SUBTITLE 3 */}
                 <h2
