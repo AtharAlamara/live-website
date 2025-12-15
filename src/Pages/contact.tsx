@@ -236,15 +236,16 @@ function ContactPage() {
                   <div className="flex items-start gap-2">
                     <span className="text-[#000000] text-xl">•</span>
                     <a
-                      href={`mailto:${t('{email-1}', 'inquries@atharalamara.sa')}`}
-                      className="text-lg hover:underline"
-                      style={{
-                        fontWeight: isAr ? 300 : 100,
-                        textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
-                      }}
-                    >
-                      {t('{email-1}', 'inquries@atharalamara.sa')}
-                    </a>
+  href={`mailto:${t('{email-1}', 'inquries@atharalamara.sa')}`}
+  className="text-lg hover:underline"
+  style={{
+    fontWeight: isAr ? 300 : 100,   // keep your existing logic
+    opacity: isWinEn ? 0.65 : 1,    // ✅ apply the thinning rule here
+    textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
+  }}
+>
+  {t('{email-1}', 'inquries@atharalamara.sa')}
+</a>
                   </div>
 
                   
