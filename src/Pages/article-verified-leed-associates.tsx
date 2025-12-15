@@ -273,7 +273,6 @@ export default function Article1() {
                   {S3}
                 </h2>
                 <p>{S3P1}</p>
-                <p>{S3P2}</p>
 
                 {/* SECTION 4 — Subtitle converted to REGULAR Arabic */}
                 <h3
