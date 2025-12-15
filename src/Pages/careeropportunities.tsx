@@ -257,15 +257,36 @@ const isWinEn = locale === 'en' && isWindows;
           <div className="px-6 md:px-12 pt-20 pb-20">
             <div className="max-w-2xl mx-auto">
 
-              {/* Welcome */}
               <section ref={welcomeRef} className="animate-element slide-up">
-                <h2 className="text-xl mb-2 font-light" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
-                  {t('welcome-headline', 'Welcome to our careers and opportunities page.')}
-                </h2>
-                <p className="text-lg leading-relaxed font-thin text-[#000000]" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
-                  {t('welcome-body', "We're excited to learn more about you and how you can contribute to our team. To get started, please submit your CV using the form below. This is your chance to showcase your skills, experience, and achievements that make you the perfect fit for our team. Fill in the form below and we will get back to you as soon as possible.")}
-                </p>
-              </section>
+  <h2
+    className="text-xl mb-2 font-light"
+    style={{
+      fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+
+      // ✅ Slightly bolder ONLY for Arabic (Mac + Windows)
+      fontWeight: locale === 'ar' ? 400 : undefined,
+    }}
+  >
+    {t('welcome-headline', 'Welcome to our careers and opportunities page.')}
+  </h2>
+
+  <p
+    className="text-lg leading-relaxed font-thin text-[#000000]"
+    style={{
+      fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+
+      // ✅ Keep everything the same everywhere,
+      // but apply the "bullet effect" ONLY on Windows + English
+      opacity: isWinEn ? 0.65 : 1,
+    }}
+  >
+    {t(
+      'welcome-body',
+      "We're excited to learn more about you and how you can contribute to our team. To get started, please submit your CV using the form below. This is your chance to showcase your skills, experience, and achievements that make you the perfect fit for our team. Fill in the form below and we will get back to you as soon as possible."
+    )}
+  </p>
+</section>
+
 
               <div className="pt-20" />
 
