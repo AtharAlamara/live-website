@@ -232,7 +232,20 @@ function ContactPage() {
                     {t('{emails-label}', 'Emails')}
                   </p>
 
-            
+                  {/* EMAIL 1 */}
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#000000] text-xl">•</span>
+                    <a
+                      href={`mailto:${t('{email-1}', 'inquries@atharalamara.sa')}`}
+                      className="text-lg hover:underline"
+                      style={{
+                        fontWeight: isAr ? 300 : 100,
+                        textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
+                      }}
+                    >
+                      {t('{email-1}', 'inquries@atharalamara.sa')}
+                    </a>
+                  </div>
 
                   {/* EMAIL 1 */}
                     <div className="flex items-start gap-2">
