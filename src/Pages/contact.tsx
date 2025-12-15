@@ -16,6 +16,7 @@ function ContactPage() {
   const isWindows =
     typeof navigator !== 'undefined' &&
     navigator.platform.toLowerCase().includes('win');
+    const isWinEn = isWindows && !isAr;
 
   const [texts, setTexts] = React.useState<Record<string, string>>({});
 
