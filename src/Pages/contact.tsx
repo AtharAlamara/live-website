@@ -212,7 +212,7 @@ function ContactPage() {
                         rel="noopener noreferrer"
                         className="text-lg hover:underline"
                         style={{
-                          fontWeight: isAr ? 300 : (!isAr && isWindows ? 200 : 100),,
+                          fontWeight: isAr ? 300 : (!isAr && isWindows ? 200 : 100),
                           textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
                         }}
                       >
