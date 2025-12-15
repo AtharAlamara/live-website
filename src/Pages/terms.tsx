@@ -130,7 +130,7 @@ function TermsPage() {
                 {t('use-lead', 'You may use our website for lawful purposes only. You agree not to:')}
               </p>
               <ul className={`list-disc ${isAr ? 'pr-6' : 'pl-6'} mt-4 space-y-2`}>
-                <li className="text-lg leading-relaxed font-thin">{t('use-li1', 'Use the website in any way that violates Saudi Arabian laws or regulations')}</li>
+                <li className="text-lg leading-relaxed font-thin" style={arabicTextStyle}>{t('use-li1', 'Use the website in any way that violates Saudi Arabian laws or regulations')}</li>
                 <li className="text-lg leading-relaxed font-thin">{t('use-li2', 'Attempt to gain unauthorized access to our systems or networks')}</li>
                 <li className="text-lg leading-relaxed font-thin">{t('use-li3', 'Interfere with the proper functioning of the website')}</li>
                 <li className="text-lg leading-relaxed font-thin">{t('use-li4', 'Use automated systems to access the website without permission')}</li>
