@@ -19,8 +19,7 @@ function CareerOpportunities() {
   const { pathname } = useLocation();
   const locale = pathname.startsWith('/sa/') ? 'ar' : 'en';
   const isWindows =
-  typeof navigator !== 'undefined' &&
-  /win/i.test(navigator.platform || navigator.userAgent);
+
 
 const isWinEn = !isAr && isWindows;
 
