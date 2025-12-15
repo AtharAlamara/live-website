@@ -265,7 +265,7 @@ export default function Article2() {
 
                 <p>{S2P1}</p>
                 <p>{S2P2}</p>
-                <p>{S2P3}</p>
+            
 
                 {/* SUBTITLE 3 */}
                 <h2
