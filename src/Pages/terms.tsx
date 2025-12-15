@@ -13,6 +13,13 @@ function TermsPage() {
   const locale = pathname.startsWith('/sa/') ? 'ar' : 'en';
   const isAr = locale === 'ar';
 
+  // ✅ Windows detection (used ONLY for Windows + English bullet styling)
+  const isWindows =
+    typeof navigator !== 'undefined' &&
+    /win/i.test(navigator.platform || navigator.userAgent);
+
+  const isWinEn = !isAr && isWindows;
+
   // 2) fetch TermsPage rows
   const [texts, setTexts] = React.useState<Record<string, string>>({});
   const [loading, setLoading] = React.useState(true);
@@ -149,25 +156,49 @@ function TermsPage() {
               <ul className={`list-disc ${isAr ? 'pr-6' : 'pl-6'} mt-4 space-y-2`}>
                 <li
                   className="text-lg leading-relaxed font-thin"
-                  style={isAr ? { fontWeight: 200, opacity: 0.85 } : undefined}
+                  style={
+                    isAr
+                      ? { fontWeight: 200, opacity: 0.85 }
+                      : isWinEn
+                      ? { fontWeight: 200, opacity: 0.85 }
+                      : undefined
+                  }
                 >
                   {t('use-li1', 'Use the website in any way that violates Saudi Arabian laws or regulations')}
                 </li>
                 <li
                   className="text-lg leading-relaxed font-thin"
-                  style={isAr ? { fontWeight: 200, opacity: 0.85 } : undefined}
+                  style={
+                    isAr
+                      ? { fontWeight: 200, opacity: 0.85 }
+                      : isWinEn
+                      ? { fontWeight: 200, opacity: 0.85 }
+                      : undefined
+                  }
                 >
                   {t('use-li2', 'Attempt to gain unauthorized access to our systems or networks')}
                 </li>
                 <li
                   className="text-lg leading-relaxed font-thin"
-                  style={isAr ? { fontWeight: 200, opacity: 0.85 } : undefined}
+                  style={
+                    isAr
+                      ? { fontWeight: 200, opacity: 0.85 }
+                      : isWinEn
+                      ? { fontWeight: 200, opacity: 0.85 }
+                      : undefined
+                  }
                 >
                   {t('use-li3', 'Interfere with the proper functioning of the website')}
                 </li>
                 <li
                   className="text-lg leading-relaxed font-thin"
-                  style={isAr ? { fontWeight: 200, opacity: 0.85 } : undefined}
+                  style={
+                    isAr
+                      ? { fontWeight: 200, opacity: 0.85 }
+                      : isWinEn
+                      ? { fontWeight: 200, opacity: 0.85 }
+                      : undefined
+                  }
                 >
                   {t('use-li4', 'Use automated systems to access the website without permission')}
                 </li>
@@ -187,19 +218,37 @@ function TermsPage() {
               <ul className={`list-disc ${isAr ? 'pr-6' : 'pl-6'} mt-4 space-y-2`}>
                 <li
                   className="text-lg leading-relaxed font-thin"
-                  style={isAr ? { fontWeight: 200, opacity: 0.85 } : undefined}
+                  style={
+                    isAr
+                      ? { fontWeight: 200, opacity: 0.85 }
+                      : isWinEn
+                      ? { fontWeight: 200, opacity: 0.85 }
+                      : undefined
+                  }
                 >
                   {t('ip-li1', 'Reproduce, distribute, or display our content without written permission')}
                 </li>
                 <li
                   className="text-lg leading-relaxed font-thin"
-                  style={isAr ? { fontWeight: 200, opacity: 0.85 } : undefined}
+                  style={
+                    isAr
+                      ? { fontWeight: 200, opacity: 0.85 }
+                      : isWinEn
+                      ? { fontWeight: 200, opacity: 0.85 }
+                      : undefined
+                  }
                 >
                   {t('ip-li2', 'Use our content for commercial purposes')}
                 </li>
                 <li
                   className="text-lg leading-relaxed font-thin"
-                  style={isAr ? { fontWeight: 200, opacity: 0.85 } : undefined}
+                  style={
+                    isAr
+                      ? { fontWeight: 200, opacity: 0.85 }
+                      : isWinEn
+                      ? { fontWeight: 200, opacity: 0.85 }
+                      : undefined
+                  }
                 >
                   {t('ip-li3', 'Modify or create derivative works from our content')}
                 </li>
