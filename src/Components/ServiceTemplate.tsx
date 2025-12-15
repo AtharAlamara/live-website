@@ -54,6 +54,11 @@ export default function ServiceTemplate({
   const locale = isAr ? 'ar' : 'en';
   const baseUrl = 'https://atharalamara.sa';
 
+  // ✅ Change 1: Windows detection (safe)
+  const isWindows =
+    typeof navigator !== 'undefined' &&
+    navigator.platform.toLowerCase().includes('win');
+
   const [texts, setTexts] = useState<TextMap>({});
 
   useEffect(() => {
@@ -186,65 +191,65 @@ export default function ServiceTemplate({
           <div className="px-6 md:px-12 pt-20 pb-20">
             <div className="max-w-xl mx-auto">
               <section className="mb-8">
+                {/* ✅ Change 2: subtitle bold ONLY on Windows + Arabic */}
                 <h2
                   className="text-xl mb-2 font-light"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                  style={{
+                    fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+                    fontWeight: isAr && isWindows ? 600 : 300,
+                  }}
                 >
                   {subtitle}
                 </h2>
 
                 <div className="space-y-6">
                   <p
-  className="text-lg font-light leading-relaxed text-[#000000]"
-  style={{
-  direction: isAr ? "rtl" : "ltr",
-  unicodeBidi: "isolate",
-  display: "inline-block",
-  textAlign: isAr ? "right" : "left",
+                    className="text-lg font-light leading-relaxed text-[#000000]"
+                    style={{
+                      direction: isAr ? 'rtl' : 'ltr',
+                      unicodeBidi: 'isolate',
+                      display: 'inline-block',
+                      textAlign: isAr ? 'right' : 'left',
 
-  // 🔥 makes Mac thin again
-  WebkitFontSmoothing: "antialiased",
-  MozOsxFontSmoothing: "grayscale",
-}}
+                      // 🔥 makes Mac thin again
+                      WebkitFontSmoothing: 'antialiased',
+                      MozOsxFontSmoothing: 'grayscale',
+                    }}
+                  >
+                    {p1}
+                  </p>
 
->
-  {p1}
-</p>
+                  <p
+                    className="text-lg font-light leading-relaxed text-[#000000]"
+                    style={{
+                      direction: isAr ? 'rtl' : 'ltr',
+                      unicodeBidi: 'isolate',
+                      display: 'inline-block',
+                      textAlign: isAr ? 'right' : 'left',
 
-<p
-  className="text-lg font-light leading-relaxed text-[#000000]"
-  style={{
-  direction: isAr ? "rtl" : "ltr",
-  unicodeBidi: "isolate",
-  display: "inline-block",
-  textAlign: isAr ? "right" : "left",
+                      // 🔥 makes Mac thin again
+                      WebkitFontSmoothing: 'antialiased',
+                      MozOsxFontSmoothing: 'grayscale',
+                    }}
+                  >
+                    {p2}
+                  </p>
 
-  // 🔥 makes Mac thin again
-  WebkitFontSmoothing: "antialiased",
-  MozOsxFontSmoothing: "grayscale",
-}}
+                  <p
+                    className="text-lg font-light leading-relaxed text-[#000000]"
+                    style={{
+                      direction: isAr ? 'rtl' : 'ltr',
+                      unicodeBidi: 'isolate',
+                      display: 'inline-block',
+                      textAlign: isAr ? 'right' : 'left',
 
->
-  {p2}
-</p>
-
-<p
-  className="text-lg font-light leading-relaxed text-[#000000]"
-  style={{
-  direction: isAr ? "rtl" : "ltr",
-  unicodeBidi: "isolate",
-  display: "inline-block",
-  textAlign: isAr ? "right" : "left",
-
-  // 🔥 makes Mac thin again
-  WebkitFontSmoothing: "antialiased",
-  MozOsxFontSmoothing: "grayscale",
-}}
-
->
-  {p3}
-</p>
-
+                      // 🔥 makes Mac thin again
+                      WebkitFontSmoothing: 'antialiased',
+                      MozOsxFontSmoothing: 'grayscale',
+                    }}
+                  >
+                    {p3}
+                  </p>
                 </div>
               </section>
 
