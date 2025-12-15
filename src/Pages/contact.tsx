@@ -436,7 +436,7 @@ function ContactPage() {
                       <p
                         className="text-lg font-thin"
                         style={{
-                          fontWeight: !isAr && isWindows ? 100 : undefined,
+                          fontWeight: !isAr && isWindows ? 200 : undefined,
                         }}
                       >
                         {t('{studio-address}', 'Al Takhassusi St., Riyadh, KSA')}
