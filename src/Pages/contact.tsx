@@ -425,24 +425,24 @@ function ContactPage() {
                   </div>
 
                   {/* Address */}
-                  <div className="space-y-1">
-                    <p
-                      className="font-light text-xl"
-                      style={{ fontWeight: isAr ? 400 : undefined }}
-                    >
-                      {t('{address-label}', 'Address')}
-                    </p>
-                    <div className="flex items-start gap-2">
-                      <span className="text-[#000000] text-xl">•</span>
-                      <p
-                        className="text-lg font-thin"
-                        style={{
-                          fontWeight: !isAr && isWindows ? 200 : undefined,
-                        }}
-                      >
-                        {t('{studio-address}', 'Al Takhassusi St., Riyadh, KSA')}
-                      </p>
-                    </div>
+  <div className="space-y-1">
+    <p
+      className="font-light text-xl"
+      style={{ fontWeight: isAr ? 400 : undefined }}
+    >
+      {t('{address-label}', 'Address')}
+    </p>
+    <div className="flex items-start gap-2">
+      <span className="text-[#000000] text-xl">•</span>
+      <p
+        className="text-lg font-thin"
+        style={{
+          opacity: isWinEn ? 0.65 : 1,
+        }}
+      >
+        {t('{studio-address}', 'Al Takhassusi St., Riyadh, KSA')}
+      </p>
+    </div>
                   </div>
 
                   {/* Hours */}
