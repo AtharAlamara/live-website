@@ -138,7 +138,7 @@ export default function Article2() {
   const S3   = t(`${base}-s3`, 'Design That Respects the Local Context');
   const S3P1 = t(`${base}-s3p1`, 'While global inspiration plays a role, true elegance comes from making it local.');
   const S3P2 = t(`${base}-s3p2`, 'We avoid over-decoration and focus on proportion, materiality, and flow...');
-  const S3P3 = t(`${base}-s3p3`, 'At the end of the day, every home deserves to feel intentional...');
+  const S3P3 = t(`${base}-s3p3`, ' ');
    
   const seoTitle =
     t(`${base}-seo-title`, '') ||
