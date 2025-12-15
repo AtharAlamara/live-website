@@ -187,11 +187,15 @@ export default function ServiceTemplate({
             <div className="max-w-xl mx-auto">
               <section className="mb-8">
                 <h2
-                  className="text-xl mb-2 font-light"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
-                >
-                  {subtitle}
-                </h2>
+  className={`text-xl mb-2 ${isAr && isWindows ? 'font-semibold' : 'font-light'}`}
+  style={{
+    fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+    fontWeight: isAr && isWindows ? 700 : 300,
+  }}
+>
+  {subtitle}
+</h2>
+
 
                 <div className="space-y-6">
                   <p
