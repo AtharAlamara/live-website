@@ -435,11 +435,11 @@ function ContactPage() {
                     <div className="flex items-start gap-2">
                       <span className="text-[#000000] text-xl">•</span>
                       <p
-                        className="text-lg font-thin"
-                        style={{
-                          fontWeight: !isAr && isWindows ? 200 : undefined,
-                        }}
-                      >
+        className="text-lg font-thin"
+        style={{
+          opacity: isWinEn ? 0.65 : 1,
+        }}
+      >
                         {t('{studio-address}', 'Al Takhassusi St., Riyadh, KSA')}
                       </p>
                     </div>
