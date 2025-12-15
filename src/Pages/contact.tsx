@@ -349,21 +349,23 @@ function ContactPage() {
 
                     <div className="flex flex-col gap-2">
                       {/* PHONE 1 */}
-                      <div className="flex items-start gap-2">
-                        <span className="text-[#000000] text-xl">•</span>
-                        <a
-                          href="https://wa.me/966550867366"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-lg hover:underline"
-                          style={{
-                            fontWeight: isAr ? 300 : (!isAr && isWindows ? 200 : 100),
-                            textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
-                          }}
-                        >
-                          <bdi>{t('{phone-1}', '+966 55 086 7366')}</bdi>
-                        </a>
-                      </div>
+<div className="flex items-start gap-2">
+  <span className="text-[#000000] text-xl">•</span>
+  <a
+    href="https://wa.me/966550867366"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-lg hover:underline"
+    style={{
+      fontWeight: isAr ? 300 : 100,  // ⬅️ KEEP EXACTLY AS YOU HAD IT
+      opacity: isWinEn ? 0.65 : 1,   // ⬅️ ONLY affects Windows + English
+      textShadow: isAr ? 'none' : '0 0 1px rgba(0,0,0,0)',
+    }}
+  >
+    <bdi>{t('{phone-1}', '+966 55 086 7366')}</bdi>
+  </a>
+</div>
+
 
                       {/* PHONE 2 */}
                       <div className="flex items-start gap-2">
