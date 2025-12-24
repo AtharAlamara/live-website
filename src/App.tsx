@@ -54,6 +54,7 @@ import Project20 from './Pages/Projects/terra-café';
 function App() {
   return (
     <Router>
+    <AnalyticsTracker />
       <LocaleHtmlAttrs />
       <ScrollToTop />
       <CookieBanner />
@@ -154,6 +155,7 @@ function App() {
           <Route path="/sa/projects/terra-café" element={<Project20 />} />
         </Routes>
       </AnimatePresence>
+    </AnalyticsTracker> 
     </Router>
   );
 }
