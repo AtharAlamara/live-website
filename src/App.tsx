@@ -61,9 +61,8 @@ function App() {
         <Routes>
           {/* Landing page (English + Arabic) */}
           <Route path="/"  element={<LandingPage />} />
-<Route path="/sa" element={<LandingPage />} />
-
-
+          <Route path="/sa" element={<LandingPage />} />
+          
           {/* Other routes */}
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/sa/terms" element={<TermsPage />} />
