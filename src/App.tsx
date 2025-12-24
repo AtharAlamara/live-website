@@ -155,7 +155,6 @@ function App() {
           <Route path="/sa/projects/terra-café" element={<Project20 />} />
         </Routes>
       </AnimatePresence>
-    </AnalyticsTracker> 
     </Router>
   );
 }
