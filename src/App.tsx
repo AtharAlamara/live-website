@@ -5,6 +5,8 @@ import ScrollToTop from './Components/ScrollToTop';
 import CookieBanner from './Components/CookieBanner';
 import LandingPage from './LandingPage';
 import LocaleHtmlAttrs from './lib/LocaleHtmlAttrs';
+import AnalyticsTracker from './Components/AnalyticsTracker';
+
 
 // all your other pages/components…
 import TermsPage from './Pages/terms';
