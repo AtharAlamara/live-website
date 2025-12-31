@@ -315,7 +315,7 @@ function ContactPage() {
 
             <div ref={mobileMapRef} className="animate-element delay-1500 mt-12">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.787824410034!2d46.668529!3d24.6921447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03bce869f601%3A0xae87bc927b47acbd!2sHuna%20Takhassusi!5e0!3m2!1sen!2sgr!4v1732040000000!5m2!1sen!2sgr"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.0115844771826!2d46.6706721!3d24.692128500000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f032cfc30df69%3A0x9758ee2e2818d575!2z2KPYq9ixINin2YTYudmF2KfYsdipINmE2YTYpdiz2KrYtNin2LHYp9iqINin2YTZh9mG2K_Ys9mK2Kk!5e0!3m2!1sen!2sgr!4v1767178413944!5m2!1sen!2sgr"
                 width="100%"
                 height="450"
                 style={{ border: 0 }}
