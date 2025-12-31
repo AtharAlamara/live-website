@@ -285,7 +285,7 @@ function ContactPage() {
           opacity: isWinEn ? 0.65 : 1,
         }}
       >
-                      {t('{studio-address}', 'Al Takhassusi St., Riyadh, KSA')}
+                      {t('{address-line}', 'Al Takhassusi St., Riyadh, KSA')}
                     </p>
                   </div>
                 </div>
@@ -455,7 +455,7 @@ function ContactPage() {
           opacity: isWinEn ? 0.65 : 1,
         }}
       >
-                        {t('{studio-address}', 'Al Takhassusi St., Riyadh, KSA')}
+                        {t('{address-line}', 'Al Takhassusi St., Riyadh, KSA')}
                       </p>
                     </div>
                   </div>
