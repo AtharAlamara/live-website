@@ -103,7 +103,17 @@ export default function ProjectTemplate({
           {/* TOP TEXT BLOCK */}
           <div className="text-center mb-8">
 
-            <h1 className="text-xl font-bold">{project.name}</h1>
+            const force001VillaBidi = isAr && projectSlug === "/projects/001-villa";
+...
+<h1 className="text-xl font-bold">
+  <span
+    dir={force001VillaBidi ? "ltr" : undefined}
+    style={force001VillaBidi ? { unicodeBidi: "isolate" } : undefined}
+  >
+    {project.name}
+  </span>
+</h1>
+
 
             {/* SUBTITLE — PROPER RTL ISOLATION */}
             <p
