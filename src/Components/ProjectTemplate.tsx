@@ -73,6 +73,8 @@ export default function ProjectTemplate({
         { url: nextUrl, label: nextLabel },
       ];
 
+  const force001VillaBidi = isAr && projectSlug === '/projects/001-villa';
+  
   return (
     <PageWrapper>
       <Helmet>
