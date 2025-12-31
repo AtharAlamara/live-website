@@ -187,7 +187,7 @@ export default function ServiceTemplate({
       </section>
 
       <PageWrapper>
-        <main className="relative z-10 bg-[#F9F6F1]">
+        <main className="relative z-10 bg-[#FFFFFF]">
           <div className="px-6 md:px-12 pt-20 pb-20">
             <div className="max-w-xl mx-auto">
               <section className="mb-8">
