@@ -290,7 +290,7 @@ export default function Article2() {
           relatedArticles={{
             title: isAr ? 'من مذكّراتنا' : 'More from our Journal',
             description: isAr
-              ? 'اكتشف مقالات ورؤى إضافية من أثر العمارة.'
+              ? 'اكتشف مقالات أخرى من أثر العمارة'
               : 'Explore insights from Athar Architecture.',
             items: relatedArticles,
           }}
