@@ -17,11 +17,6 @@ function StudioPage() {
   const locale = pathname.startsWith('/sa/') ? 'ar' : 'en';
   const [texts, setTexts] = React.useState<Record<string, string>>({});
 
-  // ✅ Windows detection (same logic as the services subtitle fix)
-  const isWindows =
-    typeof navigator !== 'undefined' &&
-    navigator.platform.toLowerCase().includes('win');
-
   useEffect(() => {
     let cancelled = false;
     supabase
@@ -79,10 +74,7 @@ function StudioPage() {
             'architecture studio Riyadh, interior design studio Saudi Arabia, LEED certified architects, sustainable design, contemporary architecture, design philosophy'
           )}
         />
-        <meta
-          property="og:title"
-          content={t('{seo-studio-og-title}', 'Athar Architecture | Studio')}
-        />
+        <meta property="og:title" content={t('{seo-studio-og-title}', 'Athar Architecture | Studio')} />
         <meta
           property="og:description"
           content={t(
@@ -92,15 +84,9 @@ function StudioPage() {
         />
         <meta property="og:image" content={t('{seo-studio-og-image}', '/Athar Final.png')} />
         <meta property="og:type" content={t('{seo-studio-og-type}', 'website')} />
-        <meta
-          property="og:url"
-          content={t('{seo-studio-og-url}', 'https://atharalamara.sa/studio')}
-        />
+        <meta property="og:url" content={t('{seo-studio-og-url}', 'https://atharalamara.sa/studio')} />
         <meta name="twitter:card" content={t('{seo-studio-twitter-card}', 'summary_large_image')} />
-        <meta
-          name="twitter:title"
-          content={t('{seo-studio-twitter-title}', 'Athar Architecture | Studio')}
-        />
+        <meta name="twitter:title" content={t('{seo-studio-twitter-title}', 'Athar Architecture | Studio')} />
         <meta
           name="twitter:description"
           content={t(
@@ -110,6 +96,7 @@ function StudioPage() {
         />
         <meta name="twitter:image" content={t('{seo-studio-twitter-image}', '/Athar Final.png')} />
       </Helmet>
+
       <Helmet>
         <title>{t('{seo-studio-title}', 'Athar Architecture | Studio')}</title>
         <meta
@@ -127,6 +114,7 @@ function StudioPage() {
           )}
         />
       </Helmet>
+
       <ScrollToTop />
       <GlobalHeader />
 
@@ -144,11 +132,7 @@ function StudioPage() {
       </div>
 
       {/* Studio title on desktop */}
-      <div
-        className={`hidden md:block absolute bottom-6 z-10 ${
-          locale === 'ar' ? 'right-10' : 'left-10'
-        }`}
-      >
+      <div className={`hidden md:block absolute bottom-6 z-10 ${locale === 'ar' ? 'right-10' : 'left-10'}`}>
         <h1
           className="text-4xl font-medium text-white"
           style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
@@ -171,11 +155,7 @@ function StudioPage() {
       </div>
 
       {/* Studio title on mobile */}
-      <div
-        className={`block md:hidden absolute bottom-6 z-10 ${
-          locale === 'ar' ? 'right-4' : 'left-4'
-        }`}
-      >
+      <div className={`block md:hidden absolute bottom-6 z-10 ${locale === 'ar' ? 'right-4' : 'left-4'}`}>
         <h1
           className="text-4xl font-medium text-white"
           style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
@@ -198,7 +178,7 @@ function StudioPage() {
                   className="text-xl mb-2 font-light"
                   style={{
                     fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-                    fontWeight: locale === 'ar' && isWindows ? 400 : 300,
+                    fontWeight: locale === 'ar' ? 400 : 300,
                   }}
                 >
                   {t('{about-us-title}', 'About Us')}
@@ -212,9 +192,9 @@ function StudioPage() {
                     textAlign: locale === 'ar' ? 'right' : 'left',
                     unicodeBidi: 'isolate',
                     display: 'inline-block',
-
                     WebkitFontSmoothing: 'antialiased',
                     MozOsxFontSmoothing: 'grayscale',
+                    fontWeight: locale === 'ar' ? 200 : undefined,
                   }}
                 >
                   {t(
@@ -231,9 +211,9 @@ function StudioPage() {
                     textAlign: locale === 'ar' ? 'right' : 'left',
                     unicodeBidi: 'isolate',
                     display: 'inline-block',
-
                     WebkitFontSmoothing: 'antialiased',
                     MozOsxFontSmoothing: 'grayscale',
+                    fontWeight: locale === 'ar' ? 200 : undefined,
                   }}
                 >
                   {t(
@@ -250,9 +230,9 @@ function StudioPage() {
                     textAlign: locale === 'ar' ? 'right' : 'left',
                     unicodeBidi: 'isolate',
                     display: 'inline-block',
-
                     WebkitFontSmoothing: 'antialiased',
                     MozOsxFontSmoothing: 'grayscale',
+                    fontWeight: locale === 'ar' ? 200 : undefined,
                   }}
                 >
                   {t(
@@ -268,7 +248,7 @@ function StudioPage() {
                   className="text-xl mb-2 font-light"
                   style={{
                     fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-                    fontWeight: locale === 'ar' && isWindows ? 400 : 300,
+                    fontWeight: locale === 'ar' ? 400 : 300,
                   }}
                 >
                   {t('{philosophy-title}', 'Our Philosophy')}
@@ -281,9 +261,9 @@ function StudioPage() {
                     textAlign: locale === 'ar' ? 'right' : 'left',
                     unicodeBidi: 'isolate',
                     display: 'inline-block',
-
                     WebkitFontSmoothing: 'antialiased',
                     MozOsxFontSmoothing: 'grayscale',
+                    fontWeight: locale === 'ar' ? 200 : undefined,
                   }}
                 >
                   {t(
@@ -299,7 +279,7 @@ function StudioPage() {
                   className="text-xl mb-2 font-light"
                   style={{
                     fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-                    fontWeight: locale === 'ar' && isWindows ? 400 : 300,
+                    fontWeight: locale === 'ar' ? 400 : 300,
                   }}
                 >
                   {t('{vision-title}', 'Our Vision')}
@@ -312,9 +292,9 @@ function StudioPage() {
                     textAlign: locale === 'ar' ? 'right' : 'left',
                     unicodeBidi: 'isolate',
                     display: 'inline-block',
-
                     WebkitFontSmoothing: 'antialiased',
                     MozOsxFontSmoothing: 'grayscale',
+                    fontWeight: locale === 'ar' ? 200 : undefined,
                   }}
                 >
                   {t(
@@ -330,7 +310,7 @@ function StudioPage() {
                   className="text-xl mb-2 font-light"
                   style={{
                     fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-                    fontWeight: locale === 'ar' && isWindows ? 400 : 300,
+                    fontWeight: locale === 'ar' ? 400 : 300,
                   }}
                 >
                   {t('{process-title}', 'Our Process')}
@@ -343,9 +323,9 @@ function StudioPage() {
                     textAlign: locale === 'ar' ? 'right' : 'left',
                     unicodeBidi: 'isolate',
                     display: 'inline-block',
-
                     WebkitFontSmoothing: 'antialiased',
                     MozOsxFontSmoothing: 'grayscale',
+                    fontWeight: locale === 'ar' ? 200 : undefined,
                   }}
                 >
                   {t(
@@ -371,9 +351,7 @@ function StudioPage() {
                 className="inline-flex items-center gap-2 px-8 py-3 border border-[#000000] hover:bg-[#000000] hover:text-[#FFFFFF] transition-colors duration-300 rounded-none font-medium"
                 style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
               >
-                <span className="text-sm tracking-wide">
-                  {t('{cta-button}', 'View Our Expertise')}
-                </span>
+                <span className="text-sm tracking-wide">{t('{cta-button}', 'View Our Expertise')}</span>
               </Link>
             </div>
           </div>
