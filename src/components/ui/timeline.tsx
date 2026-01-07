@@ -67,7 +67,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     <>
       <div
         className="w-full bg-[#FFFFFF] font-sans md:px-10 pt-16"
-        style={{ fontFamily: "'Work Sans', sans-serif", color: '#000000' }}
+        style={{ fontFamily: "'Helvetica Neue', Inter, Arial, sans-serif", color: '#000000' }}
         ref={containerRef}
       >
         {/* Animation styles */}
