@@ -88,7 +88,7 @@ function ServicesPage() {
           }`}
         >
           <h1
-            className="text-4xl font-medium text-white tracking-widest"
+            className="text-4xl font-medium text-white"
             style={{
               fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
             }}
@@ -117,7 +117,7 @@ function ServicesPage() {
           }`}
         >
           <h1
-            className="text-4xl font-medium text-white tracking-widest"
+            className="text-4xl font-medium text-white"
             style={{
               fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
             }}
