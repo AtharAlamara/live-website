@@ -106,7 +106,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           <div ref={mobileHeadlineRef} className="animate-element delay-500">
             <h1 
               className="text-4xl text-center mb-[0.5rem]"
-              style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 400 }}
+              style={{ fontFamily: "'Helvetica Neue', Inter, Arial, sans-serif", fontWeight: 400 }}
             >
               Services
             </h1>
