@@ -169,7 +169,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 <span
                   className="text-[#000000] text-xl leading-relaxed tracking-wider"
                   style={{ 
-                    fontFamily: "'Work Sans', sans-serif", 
+                    fontFamily: "'Helvetica Neue', Inter, Arial, sans-serif", 
                     fontWeight: 200, 
                     wordSpacing: '0.2em' 
                   }}
