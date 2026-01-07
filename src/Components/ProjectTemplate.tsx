@@ -35,7 +35,6 @@ export default function ProjectTemplate({
   heroHeight,
   children,
 }: PropsWithChildren<Props>) {
-
   const path = useLocation().pathname;
   const isAr = path.startsWith('/sa/');
   const locale = isAr ? 'ar' : 'en';
@@ -74,7 +73,7 @@ export default function ProjectTemplate({
       ];
 
   const force001VillaBidi = isAr && projectSlug === '/projects/001-villa';
-  
+
   return (
     <PageWrapper>
       <Helmet>
@@ -86,12 +85,8 @@ export default function ProjectTemplate({
       <GlobalHeader />
 
       <main className="pt-20 bg-white">
-
         {/* Hero */}
-        <div
-          className="w-full relative -mt-20"
-          style={{ height: heroHeight ?? '100vh' }}
-        >
+        <div className="w-full relative -mt-20" style={{ height: heroHeight ?? '100vh' }}>
           <img
             src={project.hero_image}
             alt={project.name}
@@ -101,54 +96,60 @@ export default function ProjectTemplate({
         </div>
 
         <section className="max-w-4xl mx-auto px-4 py-16">
-
           {/* TOP TEXT BLOCK */}
           <div className="text-center mb-8">
+            {/* ✅ Arabic: project name = 400 (only visual change) */}
+            <h1
+              className="text-xl font-bold"
+              style={{
+                fontWeight: isAr ? 400 : undefined,
+              }}
+            >
+              <bdi
+                dir={force001VillaBidi ? 'ltr' : undefined}
+                style={force001VillaBidi ? { unicodeBidi: 'isolate' } : undefined}
+              >
+                {project.name}
+              </bdi>
+            </h1>
 
-            <h1 className="text-xl font-bold">
-  <bdi
-    dir={force001VillaBidi ? 'ltr' : undefined}
-    style={force001VillaBidi ? { unicodeBidi: 'isolate' } : undefined}
-  >
-    {project.name}
-  </bdi>
-</h1>
-
-
-            {/* SUBTITLE — PROPER RTL ISOLATION */}
+            {/* ✅ Arabic: all following lines = 200 (only visual change) */}
             <p
-  className="text-lg font-light mb-4 text-center"
-  style={{
-    direction: "ltr",
-    unicodeBidi: "isolate",
-    display: "inline-block",
-  }}
->
-  {project.subtitle}
-</p>
+              className="text-lg font-light mb-4 text-center"
+              style={{
+                direction: 'ltr',
+                unicodeBidi: 'isolate',
+                display: 'inline-block',
+                fontWeight: isAr ? 200 : undefined,
+              }}
+            >
+              {project.subtitle}
+            </p>
 
-            <p className="text-lg font-light">{project.category}</p>
-            <p className="text-lg font-light mb-8">{project.status}</p>
+            <p className="text-lg font-light" style={{ fontWeight: isAr ? 200 : undefined }}>
+              {project.category}
+            </p>
+
+            <p className="text-lg font-light mb-8" style={{ fontWeight: isAr ? 200 : undefined }}>
+              {project.status}
+            </p>
           </div>
 
           {/* DESCRIPTION */}
           <div className="mx-auto mb-16 px-4 md:px-0 max-w-4xl">
-            <p className="text-lg font-light leading-relaxed text-center">
+            <p
+              className="text-lg font-light leading-relaxed text-center"
+              style={{ fontWeight: isAr ? 200 : undefined }}
+            >
               {project.description}
             </p>
           </div>
 
           {/* IMAGES — ONLY THIS PART FORCED TO LTR */}
-          <div style={{ direction: "ltr" }}>
-            {children}
-          </div>
+          <div style={{ direction: 'ltr' }}>{children}</div>
 
           {/* BUTTONS — LEFT OUTSIDE LTR WRAPPER */}
-          <div
-            className={`mt-32 flex justify-center items-center gap-6 ${
-              isAr ? 'flex-row-reverse' : ''
-            }`}
-          >
+          <div className={`mt-32 flex justify-center items-center gap-6 ${isAr ? 'flex-row-reverse' : ''}`}>
             {buttons.map((btn, i) => (
               <Link
                 key={i}
@@ -159,7 +160,6 @@ export default function ProjectTemplate({
               </Link>
             ))}
           </div>
-
         </section>
       </main>
 
