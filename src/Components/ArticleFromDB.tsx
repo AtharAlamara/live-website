@@ -171,7 +171,7 @@ export default function ArticlesFromDB({
 
             /* ⭐ Arabic subtitles = Tajawal Regular ⭐ */
             .athar-rtl-article main .max-w-4xl .prose h2 {
-              font-family: 'Tajawal', 'Work Sans', sans-serif !important;
+              font-family: "AtharArabic", sans-serif !important;
               font-weight: 400 !important;
             }
 
