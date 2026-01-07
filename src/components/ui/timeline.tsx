@@ -154,7 +154,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               <p 
                 className="text-[#000000] text-xl md:text-xl leading-relaxed text-justify mt-10"
                 style={{
-                  fontFamily: "'Work Sans', sans-serif",
+                  fontFamily: "'Helvetica Neue', Inter, Arial, sans-serif",
                   fontWeight: 200,
                   wordSpacing: '0.2em'
                 }}
