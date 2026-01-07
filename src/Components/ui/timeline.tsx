@@ -206,7 +206,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 </div>
                 <h3 
                   className="hidden md:block text-xl md:text-4xl md:pl-20 uppercase font-light tracking-wide text-[#000000]"
-                  style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+                  style={{ fontFamily: "'Helvetica Neue', Inter, Arial, sans-serif" }}
                 >
                   {item.title}
                 </h3>
