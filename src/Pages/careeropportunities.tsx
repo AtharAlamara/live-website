@@ -200,12 +200,12 @@ const isWinEn = locale === 'en' && isWindows;
   }`}
 >
   <h1
-  className={`text-4xl font-medium text-white ${
-    locale === 'ar' ? 'tracking-normal' : 'tracking-widest'
-  }`}
-  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
->
-
+    className="text-4xl font-medium text-white tracking-widest"
+    style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+  >
+    {t('careers-label', 'Careers')}
+  </h1>
+</div>
 
 
         {/* Mobile video */}
