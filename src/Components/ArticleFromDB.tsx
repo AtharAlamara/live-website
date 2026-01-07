@@ -137,8 +137,8 @@ export default function ArticlesFromDB({
     : (related.fallbackTitle || (isAr ? 'من مجلتنا' : 'More from our Journal'));
 
   const relDesc = related.descriptionKey
-    ? firstOf([related.descriptionKey], related.fallbackDescription || (isAr ? 'اكتشف مقالات إضافية' : 'Explore additional insights and stories from Athar Architecture.'))
-    : (related.fallbackDescription || (isAr ? 'اكتشف مقالات إضافية' : 'Explore additional insights and stories from Athar Architecture.'));
+    ? firstOf([related.descriptionKey], related.fallbackDescription || (isAr ? 'اكتشف مقالات أخرى من أثر العمارة' : 'Explore additional insights and stories from Athar Architecture.'))
+    : (related.fallbackDescription || (isAr ? 'اكتشف مقالات أخرى من أثر العمارة' : 'Explore additional insights and stories from Athar Architecture.'));
 
   const relatedItems = (related.items || []).map(item => ({
     ...item,
