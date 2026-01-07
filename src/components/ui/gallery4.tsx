@@ -73,13 +73,13 @@ const Gallery4 = ({
         <div className="mb-8 md:mb-14 lg:mb-16 flex flex-col items-center">
           <h2
             className="text-2xl md:text-3xl text-[#000000] text-center"
-            style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 400 }}
+            style={{ fontFamily: "'Helvetica Neue', Inter, Arial, sans-serif", fontWeight: 400 }}
           >
             {title}
           </h2>
           <p
             className="mt-2 max-w-2xl text-base text-[#000000] text-center"
-            style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 300 }}
+            style={{ fontFamily: "'Helvetica Neue', Inter, Arial, sans-serif", fontWeight: 300 }}
           >
             {description}
           </p>
