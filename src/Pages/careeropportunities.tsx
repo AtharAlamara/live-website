@@ -206,7 +206,6 @@ const isWinEn = locale === 'en' && isWindows;
   style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
 >
 
-</div>
 
 
         {/* Mobile video */}
