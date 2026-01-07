@@ -54,11 +54,6 @@ export default function ServiceTemplate({
   const locale = isAr ? 'ar' : 'en';
   const baseUrl = 'https://atharalamara.sa';
 
-  // ✅ Change 1: Windows detection (safe)
-  const isWindows =
-    typeof navigator !== 'undefined' &&
-    navigator.platform.toLowerCase().includes('win');
-
   const [texts, setTexts] = useState<TextMap>({});
 
   useEffect(() => {
@@ -99,14 +94,9 @@ export default function ServiceTemplate({
     ? { ...fallbackEn, ...fallbackAr }
     : fallbackEn) as FallbackCopy;
 
-  const title = firstOf(
-    [k('title'), `${serviceSlug}-h1`, `${serviceSlug}-heading`],
-    FB.title
-  );
-  const subtitle = firstOf(
-    [k('subtitle'), `${serviceSlug}-h2`, `${serviceSlug}-tagline`],
-    FB.subtitle
-  );
+  const title = firstOf([k('title'), `${serviceSlug}-h1`, `${serviceSlug}-heading`], FB.title);
+  const subtitle = firstOf([k('subtitle'), `${serviceSlug}-h2`, `${serviceSlug}-tagline`], FB.subtitle);
+
   const p1 = firstOf(
     [k('p1'), `${serviceSlug}-paragraph-1`, `${serviceSlug}-para1`, `${serviceSlug}-body1`],
     FB.p1
@@ -171,12 +161,7 @@ export default function ServiceTemplate({
         />
         <div className="absolute inset-0 bg-black/20" />
 
-        {/* ✅ Updated: Title moves right for Arabic */}
-        <div
-          className={`absolute bottom-6 z-10 ${
-            isAr ? 'right-10 md:right-10' : 'left-10 md:left-10'
-          }`}
-        >
+        <div className={`absolute bottom-6 z-10 ${isAr ? 'right-10 md:right-10' : 'left-10 md:left-10'}`}>
           <h1
             className="text-2xl md:text-4xl font-medium text-white"
             style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
@@ -191,12 +176,12 @@ export default function ServiceTemplate({
           <div className="px-6 md:px-12 pt-20 pb-20">
             <div className="max-w-xl mx-auto">
               <section className="mb-8">
-                {/* ✅ Change 2: subtitle bold ONLY on Windows + Arabic */}
+                {/* ✅ Arabic subtitle = 400 (no OS logic) */}
                 <h2
                   className="text-xl mb-2 font-light"
                   style={{
                     fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-                    fontWeight: isAr && isWindows ? 400 : 300,
+                    fontWeight: isAr ? 400 : 300,
                   }}
                 >
                   {subtitle}
@@ -210,10 +195,10 @@ export default function ServiceTemplate({
                       unicodeBidi: 'isolate',
                       display: 'inline-block',
                       textAlign: isAr ? 'right' : 'left',
-
-                      // 🔥 makes Mac thin again
                       WebkitFontSmoothing: 'antialiased',
                       MozOsxFontSmoothing: 'grayscale',
+                      // ✅ Arabic paragraphs = 200
+                      fontWeight: isAr ? 200 : undefined,
                     }}
                   >
                     {p1}
@@ -226,10 +211,10 @@ export default function ServiceTemplate({
                       unicodeBidi: 'isolate',
                       display: 'inline-block',
                       textAlign: isAr ? 'right' : 'left',
-
-                      // 🔥 makes Mac thin again
                       WebkitFontSmoothing: 'antialiased',
                       MozOsxFontSmoothing: 'grayscale',
+                      // ✅ Arabic paragraphs = 200
+                      fontWeight: isAr ? 200 : undefined,
                     }}
                   >
                     {p2}
@@ -242,10 +227,10 @@ export default function ServiceTemplate({
                       unicodeBidi: 'isolate',
                       display: 'inline-block',
                       textAlign: isAr ? 'right' : 'left',
-
-                      // 🔥 makes Mac thin again
                       WebkitFontSmoothing: 'antialiased',
                       MozOsxFontSmoothing: 'grayscale',
+                      // ✅ Arabic paragraphs = 200
+                      fontWeight: isAr ? 200 : undefined,
                     }}
                   >
                     {p3}
