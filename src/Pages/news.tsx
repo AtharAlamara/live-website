@@ -146,7 +146,7 @@ function NewsPage() {
           }`}
         >
           <h1
-            className="text-4xl font-medium text-white tracking-widest"
+            className="text-4xl font-medium text-white"
             style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
           >
             {t('{title}', 'News')}
@@ -173,7 +173,7 @@ function NewsPage() {
           }`}
         >
           <h1
-            className="text-3xl font-medium text-white tracking-widest"
+            className="text-3xl font-medium text-white"
             style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
           >
             {t('{title}', 'News')}
