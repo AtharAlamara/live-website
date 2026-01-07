@@ -178,7 +178,7 @@ export default function ServiceTemplate({
           }`}
         >
           <h1
-            className="text-2xl md:text-4xl font-medium text-white tracking-widest"
+            className="text-2xl md:text-4xl font-medium text-white"
             style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
           >
             {title}
