@@ -329,7 +329,7 @@ const isWinEn = locale === 'en' && isWindows;
                     </div>
 
                     <div>
-                      <label htmlFor="phone" className="block text-sm text-[#000000] mb-2" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", fontWeight: 200 }}>
+                      <label htmlFor="phone" className="block text-sm text-[#000000] mb-2" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
                         {t('phone-label', 'Phone Number *')}
                       </label>
                       <input type="tel" id="phone" name="phone" required className={inputStyle} />
