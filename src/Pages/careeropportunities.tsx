@@ -379,7 +379,7 @@ const isWinEn = locale === 'en' && isWindows;
                     </div>
 
                     <div>
-                      <label htmlFor="cv" className="block text-sm text-[#000000] mb-2" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial', sans-serif", fontWeight: 200 }}>
+                      <label htmlFor="cv" className="block text-sm text-[#000000] mb-2" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial', sans-serif" }}>
                         {t('upload-label', 'Upload CV (.doc, .docx, .pdf - Max 5MB) *')}
                       </label>
                       <input type="file" id="cv" name="cv" accept=".doc,.docx,.pdf" required className={inputStyle} />
@@ -387,7 +387,7 @@ const isWinEn = locale === 'en' && isWindows;
 
                     <div className="flex items-start">
                       <input type="checkbox" id="terms" name="terms" required className="mt-1 mr-2" />
-                      <label htmlFor="terms" className="text-sm text-[#000000]" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", fontWeight: 200 }}>
+                      <label htmlFor="terms" className="text-sm text-[#000000]" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
                         {t('terms-ack', 'I acknowledge that I have read and understand the ')}
                         <Link to="/terms" className="underline hover:text-[#292827]">{t('terms-label', 'Terms')}</Link>
                         {' '}{t('and-label', 'and')}{' '}
@@ -399,7 +399,7 @@ const isWinEn = locale === 'en' && isWindows;
                       type="submit"
                       disabled={isSubmitting}
                       className="w-full py-3 px-4 bg-[#000000] text-white rounded-lg hover:bg-[#292827] transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                      style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", fontWeight: 200 }}
+                      style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
                     >
                       {isSubmitting ? t('submitting-label', 'Submitting...') : t('submit-label', 'Submit CV')}
                     </button>
