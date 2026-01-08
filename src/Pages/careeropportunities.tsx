@@ -303,6 +303,7 @@ const isWinEn = locale === 'en' && isWindows;
                     style={{
     fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
     fontWeight: 300, // try 300 first; switch to 400 if you want bolder
+    fontWeight: locale === 'ar' ? 400 : 300,
   }}
                   >
 
