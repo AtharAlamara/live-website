@@ -322,7 +322,7 @@ const isWinEn = locale === 'en' && isWindows;
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-sm text-[#000000] mb-2" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", fontWeight: 200 }}>
+                      <label htmlFor="email" className="block text-sm text-[#000000] mb-2" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
                         {t('email-label', 'Email *')}
                       </label>
                       <input type="email" id="email" name="email" required className={inputStyle} />
