@@ -336,7 +336,7 @@ const isWinEn = locale === 'en' && isWindows;
                     </div>
 
                     <div>
-                      <label className="block text-sm text-[#000000] mb-2" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", fontWeight: 200 }}>
+                      <label className="block text-sm text-[#000000] mb-2" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
                         {t('position-label', 'Position *')}
                       </label>
                       <div className="space-y-2">
