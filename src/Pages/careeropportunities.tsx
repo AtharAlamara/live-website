@@ -314,7 +314,7 @@ const isWinEn = locale === 'en' && isWindows;
                         <input type="text" id="firstName" name="firstName" required className={inputStyle} />
                       </div>
                       <div>
-                        <label htmlFor="lastName" className="block text-sm text-[#000000] mb-2" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", fontWeight: 200 }}>
+                        <label htmlFor="lastName" className="block text-sm text-[#000000] mb-2" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
                           {t('last-name-label', 'Last Name *')}
                         </label>
                         <input type="text" id="lastName" name="lastName" required className={inputStyle} />
