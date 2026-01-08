@@ -300,6 +300,10 @@ const isWinEn = locale === 'en' && isWindows;
                   <form
                     onSubmit={handleSubmit}
                     className="space-y-6"
+                    style={{
+    fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+    fontWeight: 300, // try 300 first; switch to 400 if you want bolder
+  }}
                   >
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
