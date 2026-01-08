@@ -17,6 +17,14 @@ function StudioPage() {
   const locale = pathname.startsWith('/sa/') ? 'ar' : 'en';
   const [texts, setTexts] = React.useState<Record<string, string>>({});
 
+  // ✅ Windows detection (same approach as Careers)
+  const isWindows =
+    typeof navigator !== 'undefined' &&
+    /win/i.test(navigator.platform || navigator.userAgent);
+
+  // ✅ Only Windows + English (same as Careers)
+  const isWinEn = locale === 'en' && isWindows;
+
   useEffect(() => {
     let cancelled = false;
     supabase
@@ -178,7 +186,8 @@ function StudioPage() {
                   className="text-xl mb-2 font-light"
                   style={{
                     fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-                    fontWeight: locale === 'ar' ? 400 : 300,
+                    // ✅ Careers-style: only Arabic gets forced weight
+                    fontWeight: locale === 'ar' ? 400 : undefined,
                   }}
                 >
                   {t('{about-us-title}', 'About Us')}
@@ -186,15 +195,19 @@ function StudioPage() {
 
                 {/* Paragraph 1 */}
                 <p
-                  className="text-lg leading-relaxed font-light text-black mt-2"
+                  className="text-lg leading-relaxed font-thin text-black mt-2"
                   style={{
+                    fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                     direction: locale === 'ar' ? 'rtl' : 'ltr',
                     textAlign: locale === 'ar' ? 'right' : 'left',
                     unicodeBidi: 'isolate',
                     display: 'inline-block',
-                    WebkitFontSmoothing: 'antialiased',
-                    MozOsxFontSmoothing: 'grayscale',
+
+                    // ✅ Keep Arabic tuned exactly as before
                     fontWeight: locale === 'ar' ? 200 : undefined,
+
+                    // ✅ Careers-style Windows EN thinning only
+                    opacity: isWinEn ? 0.65 : 1,
                   }}
                 >
                   {t(
@@ -205,15 +218,15 @@ function StudioPage() {
 
                 {/* Paragraph 2 */}
                 <p
-                  className="text-lg leading-relaxed font-light text-black mt-2"
+                  className="text-lg leading-relaxed font-thin text-black mt-2"
                   style={{
+                    fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                     direction: locale === 'ar' ? 'rtl' : 'ltr',
                     textAlign: locale === 'ar' ? 'right' : 'left',
                     unicodeBidi: 'isolate',
                     display: 'inline-block',
-                    WebkitFontSmoothing: 'antialiased',
-                    MozOsxFontSmoothing: 'grayscale',
                     fontWeight: locale === 'ar' ? 200 : undefined,
+                    opacity: isWinEn ? 0.65 : 1,
                   }}
                 >
                   {t(
@@ -224,15 +237,15 @@ function StudioPage() {
 
                 {/* Paragraph 3 */}
                 <p
-                  className="text-lg leading-relaxed font-light text-black mt-2"
+                  className="text-lg leading-relaxed font-thin text-black mt-2"
                   style={{
+                    fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                     direction: locale === 'ar' ? 'rtl' : 'ltr',
                     textAlign: locale === 'ar' ? 'right' : 'left',
                     unicodeBidi: 'isolate',
                     display: 'inline-block',
-                    WebkitFontSmoothing: 'antialiased',
-                    MozOsxFontSmoothing: 'grayscale',
                     fontWeight: locale === 'ar' ? 200 : undefined,
+                    opacity: isWinEn ? 0.65 : 1,
                   }}
                 >
                   {t(
@@ -248,22 +261,22 @@ function StudioPage() {
                   className="text-xl mb-2 font-light"
                   style={{
                     fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-                    fontWeight: locale === 'ar' ? 400 : 300,
+                    fontWeight: locale === 'ar' ? 400 : undefined,
                   }}
                 >
                   {t('{philosophy-title}', 'Our Philosophy')}
                 </h2>
 
                 <p
-                  className="text-lg leading-relaxed font-light text-black mt-2"
+                  className="text-lg leading-relaxed font-thin text-black mt-2"
                   style={{
+                    fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                     direction: locale === 'ar' ? 'rtl' : 'ltr',
                     textAlign: locale === 'ar' ? 'right' : 'left',
                     unicodeBidi: 'isolate',
                     display: 'inline-block',
-                    WebkitFontSmoothing: 'antialiased',
-                    MozOsxFontSmoothing: 'grayscale',
                     fontWeight: locale === 'ar' ? 200 : undefined,
+                    opacity: isWinEn ? 0.65 : 1,
                   }}
                 >
                   {t(
@@ -279,22 +292,22 @@ function StudioPage() {
                   className="text-xl mb-2 font-light"
                   style={{
                     fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-                    fontWeight: locale === 'ar' ? 400 : 300,
+                    fontWeight: locale === 'ar' ? 400 : undefined,
                   }}
                 >
                   {t('{vision-title}', 'Our Vision')}
                 </h2>
 
                 <p
-                  className="text-lg leading-relaxed font-light text-black mt-2"
+                  className="text-lg leading-relaxed font-thin text-black mt-2"
                   style={{
+                    fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                     direction: locale === 'ar' ? 'rtl' : 'ltr',
                     textAlign: locale === 'ar' ? 'right' : 'left',
                     unicodeBidi: 'isolate',
                     display: 'inline-block',
-                    WebkitFontSmoothing: 'antialiased',
-                    MozOsxFontSmoothing: 'grayscale',
                     fontWeight: locale === 'ar' ? 200 : undefined,
+                    opacity: isWinEn ? 0.65 : 1,
                   }}
                 >
                   {t(
@@ -310,22 +323,22 @@ function StudioPage() {
                   className="text-xl mb-2 font-light"
                   style={{
                     fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-                    fontWeight: locale === 'ar' ? 400 : 300,
+                    fontWeight: locale === 'ar' ? 400 : undefined,
                   }}
                 >
                   {t('{process-title}', 'Our Process')}
                 </h2>
 
                 <p
-                  className="text-lg leading-relaxed font-light text-black mt-2"
+                  className="text-lg leading-relaxed font-thin text-black mt-2"
                   style={{
+                    fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                     direction: locale === 'ar' ? 'rtl' : 'ltr',
                     textAlign: locale === 'ar' ? 'right' : 'left',
                     unicodeBidi: 'isolate',
                     display: 'inline-block',
-                    WebkitFontSmoothing: 'antialiased',
-                    MozOsxFontSmoothing: 'grayscale',
                     fontWeight: locale === 'ar' ? 200 : undefined,
+                    opacity: isWinEn ? 0.65 : 1,
                   }}
                 >
                   {t(
