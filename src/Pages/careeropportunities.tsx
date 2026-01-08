@@ -293,7 +293,7 @@ const isWinEn = locale === 'en' && isWindows;
               {/* Form */}
               <section>
                 <div ref={formRef} className="animate-element slide-up">
-                  <h2 className="text-xl mb-2 font-light" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
+                  <h2 className="text-xl mb-2 font-light" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", fontWeight: locale === 'ar' ? 400 : undefined, }}>
                     {t('form-headline', 'Submit your CV')}
                   </h2>
 
