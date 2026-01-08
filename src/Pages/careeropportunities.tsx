@@ -308,7 +308,7 @@ const isWinEn = locale === 'en' && isWindows;
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label htmlFor="firstName" className="block text-sm text-[#000000] mb-2" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", fontWeight: 200 }}>
+                        <label htmlFor="firstName" className="block text-sm text-[#000000] mb-2" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
                           {t('first-name-label', 'First Name *')}
                         </label>
                         <input type="text" id="firstName" name="firstName" required className={inputStyle} />
