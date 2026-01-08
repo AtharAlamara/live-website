@@ -357,7 +357,7 @@ const isWinEn = locale === 'en' && isWindows;
                               onChange={(e) => setSelectedPosition(e.target.value)}
                               className="mr-2"
                             />
-                            <label htmlFor={key} className="text-sm text-[#000000]" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", fontWeight: 200 }}>
+                            <label htmlFor={key} className="text-sm text-[#000000]" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
                               {t(key, value)}
                             </label>
                           </div>
