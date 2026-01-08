@@ -110,19 +110,20 @@ export default function ProjectTemplate({
                 - Arabic: 400 (unchanged)
                 - English: match the "headline/h2" look (no bold) */}
             <h1
-              className="text-xl font-light"
-              style={{
-                fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-                fontWeight: isAr ? 400 : undefined,
-              }}
-            >
-              <bdi
-                dir={force001VillaBidi ? 'ltr' : undefined}
-                style={force001VillaBidi ? { unicodeBidi: 'isolate' } : undefined}
-              >
-                {project.name}
-              </bdi>
-            </h1>
+  className="text-xl"
+  style={{
+    fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+    fontWeight: isAr ? 400 : 300, // ✅ English matches Careers headline feel
+  }}
+>
+  <bdi
+    dir={force001VillaBidi ? 'ltr' : undefined}
+    style={force001VillaBidi ? { unicodeBidi: 'isolate' } : undefined}
+  >
+    {project.name}
+  </bdi>
+</h1>
+
 
             {/* ✅ Arabic: 200 (unchanged)
                 ✅ English Safari: use same paragraph recipe */}
