@@ -39,6 +39,14 @@ export default function ProjectTemplate({
   const isAr = path.startsWith('/sa/');
   const locale = isAr ? 'ar' : 'en';
 
+  // ✅ Same as Careers/Studio/Services: Windows detection for optional EN thinning
+  const isWindows =
+    typeof navigator !== 'undefined' &&
+    /win/i.test(navigator.platform || navigator.userAgent);
+
+  // ✅ Only Windows + English
+  const isWinEn = locale === 'en' && isWindows;
+
   const [project, setProject] = useState<Project | null>(null);
 
   useEffect(() => {
@@ -98,10 +106,13 @@ export default function ProjectTemplate({
         <section className="max-w-4xl mx-auto px-4 py-16">
           {/* TOP TEXT BLOCK */}
           <div className="text-center mb-8">
-            {/* ✅ Arabic: project name = 400 (only visual change) */}
+            {/* ✅ H1 stays H1.
+                - Arabic: 400 (unchanged)
+                - English: match the "headline/h2" look (no bold) */}
             <h1
-              className="text-xl font-bold"
+              className="text-xl font-light"
               style={{
+                fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                 fontWeight: isAr ? 400 : undefined,
               }}
             >
@@ -113,24 +124,41 @@ export default function ProjectTemplate({
               </bdi>
             </h1>
 
-            {/* ✅ Arabic: all following lines = 200 (only visual change) */}
+            {/* ✅ Arabic: 200 (unchanged)
+                ✅ English Safari: use same paragraph recipe */}
             <p
-              className="text-lg font-light mb-4 text-center"
+              className="text-lg font-thin mb-4 text-center"
               style={{
+                fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                 direction: 'ltr',
                 unicodeBidi: 'isolate',
                 display: 'inline-block',
                 fontWeight: isAr ? 200 : undefined,
+                opacity: isWinEn ? 0.65 : 1,
               }}
             >
               {project.subtitle}
             </p>
 
-            <p className="text-lg font-light" style={{ fontWeight: isAr ? 200 : undefined }}>
+            <p
+              className="text-lg font-thin"
+              style={{
+                fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+                fontWeight: isAr ? 200 : undefined,
+                opacity: isWinEn ? 0.65 : 1,
+              }}
+            >
               {project.category}
             </p>
 
-            <p className="text-lg font-light mb-8" style={{ fontWeight: isAr ? 200 : undefined }}>
+            <p
+              className="text-lg font-thin mb-8"
+              style={{
+                fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+                fontWeight: isAr ? 200 : undefined,
+                opacity: isWinEn ? 0.65 : 1,
+              }}
+            >
               {project.status}
             </p>
           </div>
@@ -138,8 +166,12 @@ export default function ProjectTemplate({
           {/* DESCRIPTION */}
           <div className="mx-auto mb-16 px-4 md:px-0 max-w-4xl">
             <p
-              className="text-lg font-light leading-relaxed text-center"
-              style={{ fontWeight: isAr ? 200 : undefined }}
+              className="text-lg font-thin leading-relaxed text-center"
+              style={{
+                fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+                fontWeight: isAr ? 200 : undefined,
+                opacity: isWinEn ? 0.65 : 1,
+              }}
             >
               {project.description}
             </p>
