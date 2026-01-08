@@ -113,7 +113,7 @@ export default function ProjectTemplate({
   className="text-xl"
   style={{
     fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-    fontWeight: isAr ? 400 : 300, // ✅ English matches Careers headline feel
+    fontWeight: isAr ? 400 : 350, // ✅ English matches Careers headline feel
   }}
 >
   <bdi
