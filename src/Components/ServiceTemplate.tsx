@@ -54,6 +54,14 @@ export default function ServiceTemplate({
   const locale = isAr ? 'ar' : 'en';
   const baseUrl = 'https://atharalamara.sa';
 
+  // ✅ Same as Careers/Studio fix: Windows detection for optional EN thinning
+  const isWindows =
+    typeof navigator !== 'undefined' &&
+    /win/i.test(navigator.platform || navigator.userAgent);
+
+  // ✅ Only Windows + English
+  const isWinEn = locale === 'en' && isWindows;
+
   const [texts, setTexts] = useState<TextMap>({});
 
   useEffect(() => {
@@ -176,12 +184,14 @@ export default function ServiceTemplate({
           <div className="px-6 md:px-12 pt-20 pb-20">
             <div className="max-w-xl mx-auto">
               <section className="mb-8">
-                {/* ✅ Arabic subtitle = 400 (no OS logic) */}
+                {/* ✅ Match Careers/Studio rule:
+                    - Arabic: 400
+                    - English: do NOT force 300 (lets Safari match Chrome) */}
                 <h2
                   className="text-xl mb-2 font-light"
                   style={{
                     fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-                    fontWeight: isAr ? 400 : 300,
+                    fontWeight: isAr ? 400 : undefined,
                   }}
                 >
                   {subtitle}
@@ -189,48 +199,49 @@ export default function ServiceTemplate({
 
                 <div className="space-y-6">
                   <p
-                    className="text-lg font-light leading-relaxed text-[#000000]"
+                    className="text-lg font-thin leading-relaxed text-[#000000]"
                     style={{
+                      fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                       direction: isAr ? 'rtl' : 'ltr',
                       unicodeBidi: 'isolate',
                       display: 'inline-block',
                       textAlign: isAr ? 'right' : 'left',
-                      WebkitFontSmoothing: 'antialiased',
-                      MozOsxFontSmoothing: 'grayscale',
-                      // ✅ Arabic paragraphs = 200
+
+                      // ✅ Arabic stays exactly as you tuned it
                       fontWeight: isAr ? 200 : undefined,
+
+                      // ✅ Careers/Studio EN behavior
+                      opacity: isWinEn ? 0.65 : 1,
                     }}
                   >
                     {p1}
                   </p>
 
                   <p
-                    className="text-lg font-light leading-relaxed text-[#000000]"
+                    className="text-lg font-thin leading-relaxed text-[#000000]"
                     style={{
+                      fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                       direction: isAr ? 'rtl' : 'ltr',
                       unicodeBidi: 'isolate',
                       display: 'inline-block',
                       textAlign: isAr ? 'right' : 'left',
-                      WebkitFontSmoothing: 'antialiased',
-                      MozOsxFontSmoothing: 'grayscale',
-                      // ✅ Arabic paragraphs = 200
                       fontWeight: isAr ? 200 : undefined,
+                      opacity: isWinEn ? 0.65 : 1,
                     }}
                   >
                     {p2}
                   </p>
 
                   <p
-                    className="text-lg font-light leading-relaxed text-[#000000]"
+                    className="text-lg font-thin leading-relaxed text-[#000000]"
                     style={{
+                      fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                       direction: isAr ? 'rtl' : 'ltr',
                       unicodeBidi: 'isolate',
                       display: 'inline-block',
                       textAlign: isAr ? 'right' : 'left',
-                      WebkitFontSmoothing: 'antialiased',
-                      MozOsxFontSmoothing: 'grayscale',
-                      // ✅ Arabic paragraphs = 200
                       fontWeight: isAr ? 200 : undefined,
+                      opacity: isWinEn ? 0.65 : 1,
                     }}
                   >
                     {p3}
