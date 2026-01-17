@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { LocaleLink as Link } from '@/lib/LocaleLink';
 import { supabase } from '../lib/supabaseClient';
-import { Instagram, Facebook } from 'lucide-react';
+import { Instagram, Facebook, Linkedin } from 'lucide-react';
 import { SiTiktok } from 'react-icons/si';
 import { FaXTwitter } from 'react-icons/fa6';
 
