@@ -183,7 +183,7 @@ export default function LandingPage() {
                   <div className="absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-700 group-hover:opacity-0 z-10" />
                   <div className="absolute inset-0 z-20 flex items-center justify-center p-6">
                     <h2
-                      className="text-white text-2xl md:text-3xl lg:text-4xl uppercase tracking-widest text-center transition-transform duration-700 ease-out group-hover:scale-110"
+                      className="text-white text-2xl md:text-3xl lg:text-4xl uppercase text-center transition-transform duration-700 ease-out group-hover:scale-110"
                       style={{
                         fontFamily:
                           "'Helvetica Neue', Helvetica, Arial, sans-serif",
