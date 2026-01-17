@@ -83,7 +83,7 @@ function ProjectsPage() {
       <GlobalHeader />
 
       {/* Hero Section with locale-specific title alignment */}
-      <section className="relative h-screen">
+      <section className="relative h-screen overflow-hidden">
         {/* Desktop Video */}
         <div className="hidden md:block absolute inset-0">
           <iframe
