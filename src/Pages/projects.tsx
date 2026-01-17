@@ -167,7 +167,7 @@ function ProjectsPage() {
                       <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <div className="text-center">
                           <h2
-                            className="text-lg md:text-xl lg:text-2xl uppercase tracking-widest text-[#000000] font-bold"
+                            className="text-lg md:text-xl lg:text-2xl uppercase text-[#000000] font-bold"
                             style={{
                               fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                             }}
