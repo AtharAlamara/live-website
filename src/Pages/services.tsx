@@ -153,7 +153,7 @@ function ServicesPage() {
                     <div className="absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-700 ease-out group-hover:opacity-0" />
                     <div className="relative z-10 flex items-center justify-center h-full">
                       <h2
-                        className="text-white text-2xl md:text-3xl lg:text-4xl uppercase tracking-widest transition-transform duration-700 ease-out group-hover:scale-110"
+                        className="text-white text-2xl md:text-3xl lg:text-4xl uppercase transition-transform duration-700 ease-out group-hover:scale-110"
                         style={{
                           fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                           fontWeight: 100,
