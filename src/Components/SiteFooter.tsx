@@ -122,6 +122,15 @@ export default function SiteFooter() {
             <a href="https://x.com/AtharAlamara" target="_blank" rel="noopener noreferrer" className="text-[#FFFFFF] hover:opacity-80"><FaXTwitter size={18}/></a>
             <a href="https://www.facebook.com/profile.php?id=61576986000561" target="_blank" rel="noopener noreferrer" className="text-[#FFFFFF] hover:opacity-80"><Facebook size={18}/></a>
             <a href="https://www.instagram.com/athar.alamara/" target="_blank" rel="noopener noreferrer" className="text-[#FFFFFF] hover:opacity-80"><Instagram size={18}/></a>
+            <a
+  href="https://www.linkedin.com/company/atharalamara/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-[#FFFFFF] hover:opacity-80"
+>
+  <Linkedin size={18} />
+</a>
+
           </div>
 
           {/* Divider */}
